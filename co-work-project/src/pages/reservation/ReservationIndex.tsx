@@ -1,10 +1,10 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import ReserveHeader from '../../components/ReserveHeader';
 
 const ReservationIndex = () => {
   return (
     <div>
-      <div>header</div>
-      <Link to="/reservation/successpage">success</Link>
+      <ReserveHeader />
       <Outlet />
       <div>footer</div>
     </div>
