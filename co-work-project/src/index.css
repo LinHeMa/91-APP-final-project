@@ -4,4 +4,8 @@
 
 html {
   font-family: 'Noto Serif TC', serif;
+  min-height: 100%;
+}
+body {
+  min-height: 100%;
 }
