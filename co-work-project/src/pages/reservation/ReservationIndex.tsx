@@ -1,12 +1,13 @@
 import { Outlet } from 'react-router-dom';
+import ReserveFooter from '../../components/ReserveFooter';
 import ReserveHeader from '../../components/ReserveHeader';
 
 const ReservationIndex = () => {
   return (
-    <div>
+    <div className="flex flex-col">
       <ReserveHeader />
       <Outlet />
-      <div>footer</div>
+      <ReserveFooter />
     </div>
   );
 };
