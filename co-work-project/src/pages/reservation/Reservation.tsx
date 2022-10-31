@@ -1,5 +1,11 @@
+import ReserveCarousell from '../../components/ReserveCarousell';
+
 const Reservation = () => {
-  return <div>landing page</div>;
+  return (
+    <div>
+      <ReserveCarousell />
+    </div>
+  );
 };
 
 export default Reservation;
