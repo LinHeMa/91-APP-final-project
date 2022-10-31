@@ -21,13 +21,6 @@ const ReserveCarousell = () => {
   const timerRef = useRef<ReturnType<typeof setInterval>>();
   const [mouseDownX, setMouseDownX] = useState(0);
   const [touchEvent, setTouchEvent] = useState<touchEventTypes>({ trace: [] });
-  const dragItem = useRef<number>();
-  const dragStart = (e: React.DragEvent<HTMLDivElement>, position: number) => {
-    const target = e.target as HTMLInputElement;
-    dragItem.current = position;
-    console.log(target?.innerHTML);
-    console.log('drag');
-  };
 
   const dragPhoto = (prevX: number, X: number) => {
     if (X - prevX < 0) return nextPhoto();
@@ -64,24 +57,24 @@ const ReserveCarousell = () => {
       onMouseDown={(e) => {
         setMouseDownX(e.pageX);
         clearInterval(timerRef.current);
+        e.preventDefault();
       }}
       onMouseUp={(e) => {
         dragPhoto(mouseDownX, e.pageX);
-        addTimer();
       }}
       onTouchStart={(e) => {
         clearInterval(timerRef.current);
+        e.preventDefault();
       }}
       onTouchMove={(e) => {
         setTouchEvent((prev) => {
           return { trace: [...prev.trace, e.targetTouches[0].clientX] };
         });
       }}
-      onTouchEnd={(e) => {
+      onTouchEnd={() => {
         const touchStartAt = touchEvent.trace[0];
         const touchEndAt = touchEvent.trace[touchEvent.trace.length - 1];
         dragPhoto(touchStartAt, touchEndAt);
-        addTimer();
       }}
     >
       <span className="relative w-[359px] h-[424px] overflow-hidden flex  justify-center items-center">
@@ -92,8 +85,6 @@ const ReserveCarousell = () => {
           src={carousellImg[photoIndex]}
           alt="iphone照片"
           className="min-w-[358px]"
-          draggable={true}
-          onDragStart={(e) => dragStart(e, photoIndex)}
         />
         <span className="absolute top-[210px] right-0">
           <ChooseButton direction="left" clickFn={nextPhoto} />
