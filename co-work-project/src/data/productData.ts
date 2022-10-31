@@ -85,3 +85,26 @@ export const titleData = [
   },
   { title: 'Best Sellers', content: [] },
 ];
+
+export const footerContactData = [
+  '關於我們',
+  '品牌故事',
+  '商店簡介',
+  '門市資訊',
+  '隱私權條款',
+];
+
+export const footerShopInfoData = [
+  '購物說明',
+  '付款方式',
+  '運送方式',
+  '退換貨方式',
+];
+
+export const footerSerivceData = [
+  '客服資訊',
+  '客服留言',
+  '常見問題',
+  '會員權益聲明',
+  '聯絡我們',
+];

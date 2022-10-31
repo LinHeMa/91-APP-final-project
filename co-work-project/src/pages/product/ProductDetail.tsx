@@ -1,3 +1,4 @@
+import ProductFooter from '../../components/product/ProductFooter';
 import ProductHeader from '../../components/product/ProductHeader';
 
 const ProductDetail = () => {
@@ -5,7 +6,7 @@ const ProductDetail = () => {
     <div>
       <ProductHeader />
       123 789
-      <div>Edit by frog</div>
+      <ProductFooter />
     </div>
   );
 };
