@@ -90,14 +90,14 @@ const ReserveCarousell = () => {
             className={classNames({
               'absolute min-w-[358px] z-0 ': true,
               '-left-[359px] duration-700': index === photoIndex - 1,
-              '-left-[359px] z-30 duration-700':
+              '-left-[359px] opacity-0 duration-700':
                 index === photoCount(carousellImg) &&
                 index !== photoIndex - 1 &&
                 index !== photoIndex &&
                 index !== photoIndex + 1,
               'left-0 z-40 duration-700': index === photoIndex,
               'left-[359px] duration-700': index === photoIndex + 1,
-              'left-[359px] z-30 duration-700':
+              'left-[359px] opacity-0 duration-700':
                 index === 0 &&
                 index !== photoIndex - 1 &&
                 index !== photoIndex &&
