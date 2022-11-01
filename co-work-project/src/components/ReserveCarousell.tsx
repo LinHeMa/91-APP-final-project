@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import carousellImg from '../data/carousellImg';
 import CarousellDot from './CarousellDot';
@@ -32,7 +33,7 @@ const ReserveCarousell = () => {
         if (prev === photoCount(carousellImg)) return 0;
         return prev + 1;
       });
-    }, 1000);
+    }, 2000);
   }, [timerRef]);
   const selectPhotoIndex = (index: number) => {
     setPhotoIndex(index);
@@ -44,7 +45,6 @@ const ReserveCarousell = () => {
       clearInterval(timerRef.current);
     };
   }, [addTimer]);
-
   return (
     <div
       className="flex flex-col justify-center items-center"
@@ -77,19 +77,38 @@ const ReserveCarousell = () => {
         dragPhoto(touchStartAt, touchEndAt);
       }}
     >
-      <span className="relative w-[359px] h-[424px] overflow-hidden flex  justify-center items-center">
-        <span className=" absolute top-10 right-5">
+      <span className="relative w-[359px] h-[424px] flex overflow-hidden justify-center items-center">
+        <span className=" absolute top-10 right-5 z-50">
           <Label total={photoCount(carousellImg) + 1} index={photoIndex + 1} />
         </span>
-        <img
-          src={carousellImg[photoIndex]}
-          alt="iphone照片"
-          className="min-w-[358px]"
-        />
-        <span className="absolute top-[210px] right-0">
+        <div className=" absolute bg-white w-full h-full top-0 left-0 z-10" />
+        {carousellImg.map((photo, index) => (
+          <img
+            src={photo}
+            key={photo}
+            alt="iphone照片"
+            className={classNames({
+              'absolute min-w-[358px] z-0 ': true,
+              '-left-[359px] duration-700': index === photoIndex - 1,
+              '-left-[359px] z-30 duration-700':
+                index === photoCount(carousellImg) &&
+                index !== photoIndex - 1 &&
+                index !== photoIndex &&
+                index !== photoIndex + 1,
+              'left-0 z-40 duration-700': index === photoIndex,
+              'left-[359px] duration-700': index === photoIndex + 1,
+              'left-[359px] z-30 duration-700':
+                index === 0 &&
+                index !== photoIndex - 1 &&
+                index !== photoIndex &&
+                index !== photoIndex + 1,
+            })}
+          />
+        ))}
+        <span className="absolute top-[210px] right-0 z-50">
           <ChooseButton direction="left" clickFn={nextPhoto} />
         </span>
-        <span className="absolute top-[210px] left-0">
+        <span className="absolute top-[210px] left-0 z-50">
           <ChooseButton direction="right" clickFn={prevPhoto} />
         </span>
       </span>
