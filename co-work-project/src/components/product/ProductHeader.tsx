@@ -16,7 +16,7 @@ function ProductHeader() {
       <div className="w-[1180px]  h-[100%] mx-auto flex items-center">
         <div className="h-[100px] flex items-center  mr-[2%] shrink-0 self-start">
           <div className="w-[216.36px] h-[65px] bg-[#ffffff] flex justify-center items-center">
-            <img src={logoImg} alt="logoImage" />
+            <img src={logoImg} alt="logoImage" className="cursor-pointer" />
           </div>
         </div>
         <div className="grow">
@@ -59,10 +59,13 @@ function ProductHeader() {
               </div>
             </div>
           </div>
-          <div className="flex justify-between  min-h-[50px] ">
-            <div className="flex flex-wrap max-w-[685px] ">
+          <div className="flex justify-between  ">
+            <div className="flex flex-wrap max-w-[685px] pt-[15px]">
               {titleData.map((data, index) => (
-                <div key={index} className="flex items-center mr-5 ">
+                <div
+                  key={index}
+                  className="flex  mb-[15px] h-[20px] mr-5 cursor-pointer"
+                >
                   <div className="text-[14px]">{data.title}</div>
                   {data.content.length !== 0 && (
                     <div className="w-5 h-5 flex justify-center items-center">
