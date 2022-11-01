@@ -4,13 +4,16 @@ import { data as iphoneData } from '../../data/iphoneData';
 import ReserveFooter from '../../components/ReserveFooter';
 import ReserveHeader from '../../components/ReserveHeader';
 import _ from 'lodash';
-enum chooseActionKind {
+import iphone_blue from '../../assets/reserve/iphone-13-blue-select-2021.png';
+import { singleIphoneImg } from '../../data/carousellImg';
+export enum chooseActionKind {
   CHANGE_MODEL = 'CHANGE_MODEL',
   CHANGE_MEMORY = 'CHANGE_MEMORY',
   CHANGE_PRICE = 'CHANGE_PRICE',
   CHANGE_COLOR = 'CHANGE_COLOR',
   CHANGE_COLORNAME = 'CHANGE_COLORNAME',
   CHANGE_QTY = 'CHANGE_QTY',
+  CHANGE_IMG = 'CHANGE_IMG',
 }
 interface chooseAction {
   type: chooseActionKind;
@@ -29,11 +32,12 @@ export interface stateType {
   variation?: variationType[];
 }
 
-interface initialStateType extends stateType {
+export interface initialStateType extends stateType {
   color: string;
   colorName: string;
   qty: number;
   img: string;
+  prevImg: string;
 }
 
 const initialState: initialStateType = {
@@ -43,7 +47,8 @@ const initialState: initialStateType = {
   color: '#447792',
   colorName: '藍色',
   qty: 5,
-  img: '',
+  img: iphone_blue,
+  prevImg: iphone_blue,
 };
 export interface ContextType {
   state: initialStateType;
@@ -57,11 +62,32 @@ function reducer(state: stateType[], action: chooseAction) {
       return {
         ...state,
         model: payload,
+        memory: 0,
+        price: 0,
+        color: '',
+        colorName: '',
+        qty: 0,
       };
     case chooseActionKind.CHANGE_COLOR:
       return {
         ...state,
-        value: payload,
+        color: payload,
+      };
+    case chooseActionKind.CHANGE_COLORNAME:
+      return {
+        ...state,
+        colorName: payload,
+      };
+    case chooseActionKind.CHANGE_MEMORY:
+      return {
+        ...state,
+        memory: payload,
+      };
+    case chooseActionKind.CHANGE_IMG:
+      return {
+        ...state,
+        img: payload,
+        prevImg: payload,
       };
     default:
       return state;

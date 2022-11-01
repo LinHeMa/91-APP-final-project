@@ -1,15 +1,12 @@
-import React from 'react';
-import { singleIphoneImg } from '../data/carousellImg';
-import ProductPicker from './ProductPicker';
+import _ from 'lodash';
+import { useOutletContext } from 'react-router-dom';
+import { ContextType } from '../pages/reservation/ReservationIndex';
 
 const ProductSlider = () => {
+  const { state, dispatch, iphoneData } = useOutletContext<ContextType>();
   return (
-    <div className="flex flex-col max-w-[426px] w-full ">
-      {singleIphoneImg.map(
-        (photo, index) =>
-          index === 0 && <img src={photo} alt="iphone照片" key={photo} />
-      )}
-      <ProductPicker />
+    <div>
+      <img src={state.img || state.prevImg} alt="iphone" />
     </div>
   );
 };
