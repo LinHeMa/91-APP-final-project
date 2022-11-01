@@ -11,5 +11,5 @@ module.exports = {
       caro: '0 0 10px #0003',
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/line-clamp')],
 };
