@@ -2,7 +2,7 @@ import ReserveCarousell from '../../components/ReserveCarousell';
 
 const Reservation = () => {
   return (
-    <div>
+    <div className=' flex-grow basis-auto flex-shrink-0'>
       <ReserveCarousell />
     </div>
   );

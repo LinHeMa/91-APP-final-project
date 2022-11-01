@@ -1,6 +1,6 @@
 const ReserveFooter = () => {
   return (
-    <div className="w-[100vw] flex h-[68px] justify-center items-center drop-shadow-sm absolute bottom-0">
+    <footer className="w-[100vw] bg-white flex h-[68px] justify-center items-center drop-shadow-sm flex-shrink-0">
       <button
         form="form"
         type="submit"
@@ -9,7 +9,7 @@ const ReserveFooter = () => {
       >
         搶先登記
       </button>
-    </div>
+    </footer>
   );
 };
 
