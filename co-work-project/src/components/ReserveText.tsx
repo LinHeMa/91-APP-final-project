@@ -1,11 +1,9 @@
 function ReserveText() {
   return (
-    <div className="w-[355px] h-[611px] mx-auto mt-[40px] max-w-[1080px]">
-      <div className="w-[315px] h-[571px] mt-[20px] mx-auto leading-4 ">
-        <span className="font-bold  text-[10px] text-[#666666]">
-          預約活動說明:
-        </span>
-        <ol className="list-decimal text-[10px] text-[#666666]">
+    <div className="w-[355px] h-[611px] mx-auto mt-[40px]">
+      <div className="w-[315px] h-[571px] mt-[20px] mx-auto leading-4">
+        <span className="font-bold  text-[10px]">預約活動說明:</span>
+        <ol className="list-decimal text-[10px]">
           <li>
             預約登記日期：即日起至
             <p className="text-[#ff5353] mx-[2px] inline">2021/9/23(四)23:59</p>

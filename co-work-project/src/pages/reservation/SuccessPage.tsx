@@ -13,7 +13,7 @@ const SuccessPage = () => {
       <span className="w-[162px] h-[48px] text-[#333333] text-center mb-[18px]">
         已完成 iphone 13 登記 敬請等候開賣通知
       </span>
-      <span className="text-[#ff5353] text-center w-[342px] h-[54px] font-semibold mb-5">
+      <span className="text-[#ff5353] text-center w-[342px] h-[54px] font-medium mb-5">
         注意：簡訊驗證通過才算有登記，完成登記的手機號碼需與會員手機號碼相同，每人限購一支
       </span>
       <div className="h-[378px] bg-[#f2f2f2] w-full">
