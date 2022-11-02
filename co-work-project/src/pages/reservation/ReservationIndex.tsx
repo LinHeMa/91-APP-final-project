@@ -5,7 +5,6 @@ import ReserveFooter from '../../components/ReserveFooter';
 import ReserveHeader from '../../components/ReserveHeader';
 import _ from 'lodash';
 import iphone_blue from '../../assets/reserve/iphone-13-blue-select-2021.png';
-import { singleIphoneImg } from '../../data/carousellImg';
 export enum chooseActionKind {
   CHANGE_MODEL = 'CHANGE_MODEL',
   CHANGE_MEMORY = 'CHANGE_MEMORY',

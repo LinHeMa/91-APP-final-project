@@ -1,7 +1,5 @@
 import _ from 'lodash';
-import React, { useEffect } from 'react';
 import { useOutletContext } from 'react-router-dom';
-import { singleIphoneImg } from '../data/carousellImg';
 import {
   chooseActionKind,
   ContextType,
@@ -20,19 +18,9 @@ const ProductPicker = () => {
   function retrunMemoryArray(data: stateType[], filter: string) {
     return _.map(_.filter(data, { model: filter }), (item) => item.memory);
   }
-  const chooseImg = _.filter(
-    singleIphoneImg,
-    (item) => _.includes(item.iphone, state.model) && item.color === state.color
-  )[0]?.img;
-  useEffect(() => {
-    if (chooseImg)
-      dispatch({
-        type: chooseActionKind.CHANGE_IMG,
-        payload: chooseImg,
-      });
-  }, [state.color]);
+
   return (
-    <div className="max-w-[376px]">
+    <div className="max-w-[376px] ">
       <h1 className="text-[16px] leading-[23px]">APPLE {state.model}</h1>
       <h2 className="text-[#FF5353] text-[20px] leading-[29px] mt-[19px]">
         NT${71680}

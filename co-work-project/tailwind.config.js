@@ -4,6 +4,7 @@ module.exports = {
   theme: {
     screens: {
       md: '768px',
+      productPage: '843px',
       // => @media (min-width: 768px) { ... }
     },
     dropShadow: {
