@@ -32,14 +32,16 @@ const ProductPicker = () => {
       });
   }, [state.color]);
   return (
-    <div>
+    <div className="max-w-[376px]">
       <h1 className="text-[16px] leading-[23px]">APPLE {state.model}</h1>
-      <h2 className="text-[#FF5353] text-[20px] leading-[29px]">NT${71680}</h2>
+      <h2 className="text-[#FF5353] text-[20px] leading-[29px] mt-[19px]">
+        NT${71680}
+      </h2>
       <p className="text-[#FF5353] text-[14px]">
         登記的手機號碼需與會員手機號碼相同，每人限購一支
         一經送出商品選項，不得修改
       </p>
-      <h1 className="text-[13px] mb-[15px] font-bold">選擇型號</h1>
+      <h1 className="text-[13px] mb-[15px] font-bold mt-[14px]">選擇型號</h1>
       <div className="flex flex-wrap">
         {returnTypesArray(iphoneData).map((name, index) => {
           return (
