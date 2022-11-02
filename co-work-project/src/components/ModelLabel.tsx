@@ -1,12 +1,7 @@
 import classNames from 'classnames';
 import _ from 'lodash';
 import { useOutletContext } from 'react-router-dom';
-import {
-  chooseActionKind,
-  ContextType,
-  initialStateType,
-  stateType,
-} from '../pages/reservation/ReservationIndex';
+import { ContextType } from '../pages/reservation/ReservationIndex';
 
 interface ModelLabelProps {
   name: string;
@@ -14,8 +9,8 @@ interface ModelLabelProps {
 }
 
 const ModelLabel = ({ name, color }: ModelLabelProps) => {
-  const { state, dispatch, iphoneData } = useOutletContext<ContextType>();
-
+  const { state } = useOutletContext<ContextType>();
+  
   return (
     <div
       className={classNames({

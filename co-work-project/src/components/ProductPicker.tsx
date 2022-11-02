@@ -1,7 +1,5 @@
 import _ from 'lodash';
-import React, { useEffect } from 'react';
 import { useOutletContext } from 'react-router-dom';
-import { singleIphoneImg } from '../data/carousellImg';
 import {
   chooseActionKind,
   ContextType,
@@ -20,26 +18,18 @@ const ProductPicker = () => {
   function retrunMemoryArray(data: stateType[], filter: string) {
     return _.map(_.filter(data, { model: filter }), (item) => item.memory);
   }
-  const chooseImg = _.filter(
-    singleIphoneImg,
-    (item) => _.includes(item.iphone, state.model) && item.color === state.color
-  )[0]?.img;
-  useEffect(() => {
-    if (chooseImg)
-      dispatch({
-        type: chooseActionKind.CHANGE_IMG,
-        payload: chooseImg,
-      });
-  }, [state.color]);
+
   return (
-    <div>
+    <div className="max-w-[376px] ">
       <h1 className="text-[16px] leading-[23px]">APPLE {state.model}</h1>
-      <h2 className="text-[#FF5353] text-[20px] leading-[29px]">NT${71680}</h2>
+      <h2 className="text-[#FF5353] text-[20px] leading-[29px] mt-[19px]">
+        NT${71680}
+      </h2>
       <p className="text-[#FF5353] text-[14px]">
         登記的手機號碼需與會員手機號碼相同，每人限購一支
         一經送出商品選項，不得修改
       </p>
-      <h1 className="text-[13px] mb-[15px] font-bold">選擇型號</h1>
+      <h1 className="text-[13px] mb-[15px] font-bold mt-[14px]">選擇型號</h1>
       <div className="flex flex-wrap">
         {returnTypesArray(iphoneData).map((name, index) => {
           return (
