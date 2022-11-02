@@ -7,7 +7,7 @@ import {
   ContextType,
 } from '../pages/reservation/ReservationIndex';
 import rightArrow from '../assets/reserve/rightArrowForSlider.png';
-import leftArrow from '../assets/reserve/leftArrowForSlider.png';
+import leftArrow from '../assets/reserve/leftArrowforSlider.png';
 import { useState } from 'react';
 
 const ProductSlider = () => {
