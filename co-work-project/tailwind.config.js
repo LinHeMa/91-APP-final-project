@@ -4,6 +4,7 @@ module.exports = {
   theme: {
     screens: {
       md: '768px',
+      lg: '1094px',
       // => @media (min-width: 768px) { ... }
     },
     lineHeight: {
