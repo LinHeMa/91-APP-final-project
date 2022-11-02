@@ -5,11 +5,19 @@ module.exports = {
     screens: {
       md: '768px',
       productPage: '843px',
+      lg: '1094px',
       // => @media (min-width: 768px) { ... }
+    },
+    lineHeight: {
+      'extra-loose': '2.5',
+      12: '25.2px',
+      24: '24px',
+      48: '48px',
     },
     dropShadow: {
       sm: '0 -3px 6px rgba(0, 0, 0, 0.1)',
+      caro: '0 0 10px #0003',
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/line-clamp')],
 };
