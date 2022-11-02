@@ -18,10 +18,10 @@ const SuccessPage = () => {
       </span>
       <div className="w-full md:bg-[#f2f2f2] ">
         <div className="h-[395px] bg-[#f2f2f2] pt-[30px]  w-full  md:h-[690px]">
-          <div className="w-[343px] h-[348px] mx-auto md:w-auto md:max-w-[850px] md:px-[15px] leading-24 md:leading-48 text-[14px] md:text-[24px]">
+          <div className="w-full h-[348px] mx-auto md:w-auto md:max-w-[850px] md:px-[15px] leading-24 md:leading-48 text-[14px] md:text-[24px] px-2">
             <span className="font-bold w-[98px] h-[20px] ">登記資訊如下：</span>
             <div className="border-b-[1px] border-b-[#D8D8D8] mt-[9px]"></div>
-            <div className="w-[327px] h-[304px] mt-[15px]  md:w-full">
+            <div className=" h-[304px] mt-[15px]  w-full">
               <div className="flex justify-between leading-6">
                 <span className="font-bold ">登記狀態</span>
                 <span className="font-bold ">驗證通過</span>
@@ -65,7 +65,9 @@ const SuccessPage = () => {
             </div>
           </div>
         </div>
-        <ReserveText />
+        <div className="mb-[100px]">
+          <ReserveText />
+        </div>
       </div>
     </div>
   );
