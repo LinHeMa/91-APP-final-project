@@ -17,7 +17,7 @@ const SuccessPage = () => {
         注意：簡訊驗證通過才算有登記，完成登記的手機號碼需與會員手機號碼相同，每人限購一支
       </span>
       <div className="w-full md:bg-[#f2f2f2] ">
-        <div className="h-[395px] bg-[#f2f2f2] pt-[30px]  w-full  md:h-[713px]">
+        <div className="h-[395px] bg-[#f2f2f2] pt-[30px]  w-full  md:h-[690px]">
           <div className="w-[343px] h-[348px] mx-auto md:w-auto md:max-w-[850px] md:px-[15px] leading-24 md:leading-48 text-[14px] md:text-[24px]">
             <span className="font-bold w-[98px] h-[20px] ">登記資訊如下：</span>
             <div className="border-b-[1px] border-b-[#D8D8D8] mt-[9px]"></div>
