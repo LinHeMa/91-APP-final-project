@@ -13,7 +13,7 @@ const SumbitForm = () => {
         <span className="md:hidden text-[14px] font-medium text-[#545454] block leading-19">
           預約時間：2021/9/17 13:00:00~ 2021/9/20 12:59:59
         </span>
-        <span className="hidden md:block text-[24px] font-medium text-[#545454] block leading-30 mb-[7px]">
+        <span className="hidden md:block text-[24px] font-medium text-[#545454]  leading-30 mb-[7px]">
           活動日期：即日起 - 9/21
         </span>
         <span className="text-[14px] font-medium text-[#FF5353] block leading-19 md:text-[24px] md:leading-30 md:mb-[60px]">
