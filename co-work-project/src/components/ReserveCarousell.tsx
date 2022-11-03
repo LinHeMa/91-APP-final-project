@@ -92,7 +92,7 @@ const ReserveCarousell = () => {
         <span className=" absolute top-10 right-5 z-50">
           <Label total={photoCount(carousellImg) + 1} index={photoIndex + 1} />
         </span>
-        <div className=" absolute bg-white w-full h-full top-0 left-0 z-10" />
+        <div className=" absolute bg-[#fafafa] w-full h-full top-0 left-0 z-10" />
         {carousellImg.map((photo, index) => (
           <img
             draggable={false}
