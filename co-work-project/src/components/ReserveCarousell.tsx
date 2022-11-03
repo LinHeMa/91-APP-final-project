@@ -4,14 +4,19 @@ import carousellImg from '../data/carousellImg';
 import CarousellDot from './CarousellDot';
 import ChooseButton from './ChooseButton';
 import Label from './Label';
+import { useMediaQuery } from 'usehooks-ts';
 interface touchEventTypes {
   trace: number[];
 }
 
 const ReserveCarousell = () => {
+  const onMobile = useMediaQuery('(max-width: 768px)');
   const [photoIndex, setPhotoIndex] = useState(0);
+  const [onPhoto, setOnPhoto] = useState(false);
+  const [isTouching, setIsTouching] = useState(false);
   const photoCount = (array: string[]) => array.length - 1;
   const nextPhoto = () => {
+    console.log('next', photoIndex);
     if (photoIndex === photoCount(carousellImg)) return setPhotoIndex(0);
     setPhotoIndex((prev) => prev + 1);
   };
@@ -40,41 +45,47 @@ const ReserveCarousell = () => {
     clearInterval(timerRef.current);
   };
   useEffect(() => {
-    addTimer();
+    //  TODO change trace to useref
+    //  TODO move istouching to onTouchend ()
+    if (!onPhoto) addTimer();
+    setTouchEvent({ trace: [] });
     return () => {
       clearInterval(timerRef.current);
     };
-  }, [addTimer]);
+  }, [addTimer, onPhoto, isTouching]);
+
   return (
     <div
       className="flex flex-col justify-center items-center"
       onMouseEnter={() => {
-        clearInterval(timerRef.current);
+        if (onMobile) return;
+        setOnPhoto(true);
       }}
       onMouseLeave={() => {
-        addTimer();
+        if (onMobile) return;
+        setOnPhoto(false);
       }}
       onMouseDown={(e) => {
+        if (onMobile) return;
         setMouseDownX(e.pageX);
         clearInterval(timerRef.current);
-        e.preventDefault();
       }}
       onMouseUp={(e) => {
+        if (onMobile) return;
         dragPhoto(mouseDownX, e.pageX);
       }}
-      onTouchStart={(e) => {
-        clearInterval(timerRef.current);
-        e.preventDefault();
-      }}
       onTouchMove={(e) => {
+        if (!onMobile) return;
         setTouchEvent((prev) => {
           return { trace: [...prev.trace, e.targetTouches[0].clientX] };
         });
       }}
       onTouchEnd={() => {
+        if (!onMobile) return;
+        setIsTouching((prev) => !prev);
         const touchStartAt = touchEvent.trace[0];
         const touchEndAt = touchEvent.trace[touchEvent.trace.length - 1];
-        dragPhoto(touchStartAt, touchEndAt);
+        if (touchStartAt && touchEndAt) dragPhoto(touchStartAt, touchEndAt);
       }}
     >
       <span className="relative w-[359px] h-[424px] flex overflow-hidden justify-center items-center">
@@ -84,6 +95,7 @@ const ReserveCarousell = () => {
         <div className=" absolute bg-white w-full h-full top-0 left-0 z-10" />
         {carousellImg.map((photo, index) => (
           <img
+            draggable={false}
             src={photo}
             key={photo}
             alt="iphone照片"
@@ -114,12 +126,18 @@ const ReserveCarousell = () => {
       </span>
       <div className="flex">
         {carousellImg.map((_, index) => (
-          <CarousellDot
-            isPlaying={photoIndex === index}
+          <span
             key={carousellImg[index]}
-            index={index}
-            clickFn={selectPhotoIndex}
-          />
+            onClick={() => {
+              addTimer();
+            }}
+          >
+            <CarousellDot
+              isPlaying={photoIndex === index}
+              index={index}
+              clickFn={selectPhotoIndex}
+            />
+          </span>
         ))}
       </div>
     </div>
