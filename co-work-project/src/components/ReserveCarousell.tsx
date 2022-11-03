@@ -136,6 +136,12 @@ const ReserveCarousell = () => {
               isPlaying={photoIndex === index}
               index={index}
               clickFn={selectPhotoIndex}
+              width="w-[13px]"
+              height="h-[13px]"
+              borderColor="border-[#D2D2D2]"
+              bgColor="bg-[#D9D9D9]"
+              marginRight="mr-[8px]"
+              totalLength={carousellImg.length}
             />
           </span>
         ))}
