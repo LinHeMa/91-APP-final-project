@@ -22,7 +22,7 @@ const ProductSlider = () => {
   };
   console.log(state);
   return (
-    <div className="w-full max-w-[426px] relative productPage:pb-[98px] mx-[20px]">
+    <div className="w-[375px] md:w-[426px] relative productPage:pb-[98px] mx-[20px]">
       <img src={state.img || state.prevImg} alt="iphone" className="w-full" />
       <div
         className="cursor-pointer absolute bottom-[40px] -left-[17.57px]  hidden productPage:block"
