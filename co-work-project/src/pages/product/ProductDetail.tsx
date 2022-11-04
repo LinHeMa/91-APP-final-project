@@ -1,14 +1,20 @@
 import ProductFooter from '../../components/product/ProductFooter';
 import ProductHeader from '../../components/product/ProductHeader';
 import ProductContent from '../../components/product/ProductContent';
-import { productData } from '../../data/productData';
+import {
+  productData,
+  productLookBook,
+  productOtherLookBook,
+  sidebarData,
+  productImgArr,
+} from '../../data/productData';
 import product1Img from '../../assets/productImgs/AA 1.png';
-import ProductCard from '../../components/product/ProductCard';
 import ProductNav from '../../components/product/ProductNav';
 import ProductLookbook from '../../components/product/ProductLookbook';
-import { productLookBook } from '../../data/productData';
-import { productOtherLookBook } from '../../data/productData';
-import { sidebarData } from '../../data/productData';
+import CarousellDot from '../../components/CarousellDot';
+import { useState } from 'react';
+import ReserveCarousell from '../../components/ReserveCarousell';
+import _ from 'lodash';
 
 const ProductDetail = () => {
   return (
@@ -32,17 +38,17 @@ const ProductDetail = () => {
             <div className="flex">
               <div>
                 <div className="w-[528px] h-[703px]">
-                  <img
-                    src={product1Img}
-                    alt="productImg"
-                    className="w-[100%] h-[100%] mb-3"
+                  <ReserveCarousell
+                    photoArr={productImgArr}
+                    leftPosition="-left-[528px]"
+                    rightPosition="left-[528px]"
+                    currentPage="product"
+                    directionIconWidth="w-[24px]"
+                    directionIconHeight="h-[24px]"
+                    directionIconTop="t-[339px]"
+                    photoWidth="w-[528px]"
+                    photoHeight="h-[703px]"
                   />
-                </div>
-                <div className="mt-3 flex items-center justify-center">
-                  <div className="w-2 h-2 mx-[5px] bg-[#4B4E5B] rounded-[50%]"></div>
-                  <div className="w-2 h-2 mx-[5px] bg-[#D8D9D8] rounded-[50%]"></div>
-                  <div className="w-2 h-2 mx-[5px] bg-[#D8D9D8] rounded-[50%]"></div>
-                  <div className="w-2 h-2 mx-[5px] bg-[#D8D9D8] rounded-[50%]"></div>
                 </div>
               </div>
               <div className="w-[336px] ml-[17px]">
