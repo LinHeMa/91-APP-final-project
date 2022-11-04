@@ -37,21 +37,35 @@ const ReserveCarousell = ({
   const [photoIndex, setPhotoIndex] = useState(0);
   const [onPhoto, setOnPhoto] = useState(false);
   const [isTouching, setIsTouching] = useState(false);
+  const [videoIsShowing, setVideoIsShowing] = useState(false);
   const photoCount = (array: string[]) => array.length - 1;
   const videoElement = useRef(null);
+
+  const isVideo = (file: string) => {
+    return _.findLast(_.split(file, '.')) === 'mp4';
+  };
+  const vidRef = useRef<number[]>();
+  function findAllIndex(array: any[]) {
+    const resultIndexArray = [];
+    for (let i = 0; i < array.length; i += 1) {
+      if (isVideo(array[i])) resultIndexArray.push(i);
+    }
+    return resultIndexArray;
+  }
+  vidRef.current = findAllIndex(photoArr);
+  console.log(vidRef.current);
   const {
     isPlaying,
     progress,
     isMuted,
+    setProgress,
     togglePlay,
     handleOnTimeUpdate,
     handleVideoProgress,
     setIsPlaying,
     toggleMute,
-  } = useVideoPlayer(videoElement);
-  console.log(setIsPlaying);
+  } = useVideoPlayer(videoElement, videoIsShowing);
   const nextPhoto = () => {
-    console.log('next', photoIndex);
     if (photoIndex === photoCount(photoArr)) return setPhotoIndex(0);
     setPhotoIndex((prev) => prev + 1);
   };
@@ -88,19 +102,29 @@ const ReserveCarousell = ({
     };
   }, [addTimer, onPhoto, isTouching]);
 
-  const isVideo = (file: string) => {
-    return _.findLast(_.split(file, '.'));
-  };
-
+  useEffect(() => {
+    if (_.includes(vidRef.current, photoIndex)) {
+      clearInterval(timerRef.current);
+      return togglePlay();
+    }
+    setIsPlaying(false);
+  }, [photoIndex]);
+  useEffect(() => {
+    if (!isPlaying && progress === 100) {
+      addTimer();
+      setProgress(0);
+    }
+  }, [isPlaying]);
+  console.log(isPlaying, progress);
   return (
     <div
       className="flex flex-col justify-center items-center"
       onMouseEnter={() => {
-        if (onMobile) return;
+        if (onMobile || isPlaying) return;
         setOnPhoto(true);
       }}
       onMouseLeave={() => {
-        if (onMobile) return;
+        if (onMobile || isPlaying) return;
         setOnPhoto(false);
       }}
       onMouseDown={(e) => {
@@ -138,7 +162,7 @@ const ReserveCarousell = ({
         <div className=" absolute bg-[#fafafa] w-full h-full top-0 left-0 z-10" />
         {photoArr.map((photo, index) => (
           <div
-            key={photo}
+            key={photo + _.toString(index)}
             className={classNames({
               'absolute z-0 min-w-full ': true,
               [`${leftPosition} duration-700`]: index === photoIndex - 1,
@@ -156,7 +180,7 @@ const ReserveCarousell = ({
                 index !== photoIndex + 1,
             })}
           >
-            {isVideo(photo) === 'png' && (
+            {!isVideo(photo) && (
               <img
                 src={photo}
                 alt="iphone照片"
@@ -164,16 +188,15 @@ const ReserveCarousell = ({
                 className={'w-full'}
               />
             )}
-            {isVideo(photo) === 'mp4' && (
+
+            {isVideo(photo) && (
               <div>
-                <div>
-                  <button onClick={togglePlay}>start</button>
-                </div>
+                <button onClick={togglePlay}>start</button>
                 <video
+                  onTimeUpdate={handleOnTimeUpdate}
                   src={photo}
                   draggable={false}
                   ref={videoElement}
-                  onTimeUpdate={handleOnTimeUpdate}
                   className={'w-full'}
                   controls
                 />
@@ -187,7 +210,7 @@ const ReserveCarousell = ({
           } z-50`}
         >
           <ChooseButton
-            direction="left"
+            direction="right"
             clickFn={nextPhoto}
             currentPage={currentPage}
             width={directionIconWidth}
@@ -201,7 +224,7 @@ const ReserveCarousell = ({
           } z-50`}
         >
           <ChooseButton
-            direction="right"
+            direction="left"
             clickFn={prevPhoto}
             currentPage={currentPage}
             width={directionIconWidth}
