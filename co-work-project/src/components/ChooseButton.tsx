@@ -1,21 +1,48 @@
 import leftArrow from '../assets/reserve/leftArrow.png';
 import rightArrow from '../assets/reserve/rightArrow.png';
+import rightImg from '../assets/productImgs/rightIcon.png';
+import leftImg from '../assets/productImgs/leftIcon.png';
 
 interface ChooseProps {
   direction: string;
   clickFn: () => void;
+  width: string;
+  height: string;
+  currentPage: string;
+  shouldShowButton: boolean;
 }
 
-const ChooseButton = ({ direction, clickFn }: ChooseProps) => {
+const ChooseButton = ({
+  direction,
+  clickFn,
+  width,
+  height,
+  currentPage,
+  shouldShowButton,
+}: ChooseProps) => {
   return (
     <div
-      className=" cursor-pointer bg-white w-[42px] h-[42px] rounded-full flex justify-center items-center drop-shadow-sm"
+      className={`${
+        currentPage === 'product' && shouldShowButton ? 'hidden' : 'block'
+      } cursor-pointer ${
+        currentPage === 'reservation'
+          ? 'bg-white rounded-full drop-shadow-sm'
+          : ''
+      } ${width} ${height}  flex justify-center items-center `}
       onClick={clickFn}
     >
-      <img
-        src={direction === 'right' ? rightArrow : leftArrow}
-        alt="directionBtn"
-      />
+      {currentPage === 'reservation' && (
+        <img
+          src={direction === 'right' ? rightArrow : leftArrow}
+          alt="directionBtn"
+        />
+      )}
+      {currentPage === 'product' && (
+        <img
+          src={direction === 'right' ? leftImg : rightImg}
+          alt="directionBtn"
+        />
+      )}
     </div>
   );
 };
