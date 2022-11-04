@@ -7,8 +7,10 @@ interface dotProps {
   height: string;
   borderColor: string;
   bgColor: string;
+  defaultBgColor: string;
   marginRight: string;
   totalLength: number;
+  currentPage: string;
 }
 const CarousellDot: React.FC<dotProps> = ({
   isPlaying,
@@ -18,14 +20,22 @@ const CarousellDot: React.FC<dotProps> = ({
   height,
   borderColor,
   bgColor,
+  defaultBgColor,
   marginRight,
   totalLength,
+  currentPage,
 }) => {
   return (
     <div
-      className={`${width} border ${height} border-solid ${borderColor} rounded-full cursor-pointer ${
+      className={`${width} ${height} ${
+        currentPage === 'product' ? 'mt-[12px]' : ''
+      } ${
+        currentPage === 'reservation'
+          ? `border border-solid ${borderColor}`
+          : ''
+      }  rounded-full cursor-pointer ${
         totalLength - 1 !== index && marginRight
-      } ${isPlaying && bgColor}`}
+      } ${defaultBgColor} ${isPlaying && bgColor}`}
       onClick={() => clickFn(index)}
     />
   );
