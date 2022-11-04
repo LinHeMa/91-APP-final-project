@@ -4,6 +4,12 @@ import product3Img from '../assets/productImgs/product3.png';
 import product4Img from '../assets/productImgs/product4.png';
 import product5Img from '../assets/productImgs/product5.png';
 import product6Img from '../assets/productImgs/product6.png';
+import product1BigImg from '../assets/productImgs/product1Big.png';
+import product2BigImg from '../assets/productImgs/product2Big.png';
+import product3BigImg from '../assets/productImgs/product3Big.png';
+import product4BigImg from '../assets/productImgs/product4Big.png';
+import product5BigImg from '../assets/productImgs/product5Big.png';
+import video from '../assets/productImgs/video.mp4';
 import sidebar1 from '../assets/productImgs/sidebar1.png';
 import sidebar2 from '../assets/productImgs/sidebar2.png';
 import sidebar3 from '../assets/productImgs/sidebar3.png';
@@ -126,12 +132,12 @@ export const productOtherLookBook = {
 };
 
 export const productImgArr = [
-  product1Img,
-  product2Img,
-  product3Img,
-  product4Img,
-  product5Img,
-  product6Img,
+  product1BigImg,
+  product2BigImg,
+  product3BigImg,
+  product4BigImg,
+  product5BigImg,
+  video,
 ];
 
 export const sidebarData = [

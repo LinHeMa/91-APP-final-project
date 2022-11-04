@@ -13,7 +13,7 @@ import { useState } from 'react';
 const ProductSlider = () => {
   const { state, dispatch, iphoneData } = useOutletContext<ContextType>();
   const [maxindex, setMaxindex] = useState(0);
-  const clickLimit = (dataArray: string[]) => {
+  const clickLimit = (dataArray: any[]) => {
     const times = dataArray.length / 5;
     const remainder = dataArray.length % 5;
     const isDivisible = dataArray.length % 5 === 0;
@@ -64,8 +64,8 @@ const ProductSlider = () => {
       <div
         className="cursor-pointer absolute bottom-[45px] -right-[17.57px]  hidden productPage:block"
         onClick={() => {
-          console.log(clickLimit(carousellImg));
-          if (maxindex >= clickLimit(carousellImg)) return;
+          console.log(clickLimit(singleIphoneImg));
+          if (maxindex >= clickLimit(singleIphoneImg)) return;
           setMaxindex((pre) => pre + 1);
         }}
       >

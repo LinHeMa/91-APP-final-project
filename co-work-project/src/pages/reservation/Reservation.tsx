@@ -1,6 +1,7 @@
 import ReserveCarousell from '../../components/ReserveCarousell';
 import ReserveText from '../../components/ReserveText';
 import flowImg from '../../assets/reserve/flow.png';
+import carousellImg from '../../data/carousellImg';
 
 const Reservation = () => {
   return (
@@ -23,7 +24,17 @@ const Reservation = () => {
           </div>
         </div>
         <div className="mb-[36px] md:w-[544px] md:h-[544px]">
-          <ReserveCarousell />
+          <ReserveCarousell
+            photoArr={carousellImg}
+            leftPosition="-left-[359px]"
+            rightPosition="left-[359px]"
+            currentPage="reservation"
+            directionIconHeight="h-[42px]"
+            directionIconWidth="w-[42px]"
+            directionIconTop="top-[210px]"
+            photoWidth="w-[359px]"
+            photoHeight="h-[424px]"
+          />
         </div>
       </div>
       <ReserveText />
