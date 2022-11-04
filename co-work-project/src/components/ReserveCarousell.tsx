@@ -6,7 +6,6 @@ import Label from './Label';
 import { useMediaQuery } from 'usehooks-ts';
 import _ from 'lodash';
 import useVideoPlayer from '../hooks/useVideoPlayer';
-import { useIntersectionObserver } from 'usehooks-ts';
 
 interface ReserveCarousellProps {
   photoArr: string[];
@@ -182,7 +181,7 @@ const ReserveCarousell = ({
                 index !== photoIndex + 1,
             })}
           >
-            {isVideo(photo) && (
+            {!isVideo(photo) && (
               <img
                 src={photo}
                 alt="iphone照片"
