@@ -39,7 +39,7 @@ const ChooseButton = ({
       )}
       {currentPage === 'product' && (
         <img
-          src={direction === 'right' ? leftImg : rightImg}
+          src={direction === 'right' ? rightImg : leftImg}
           alt="directionBtn"
         />
       )}

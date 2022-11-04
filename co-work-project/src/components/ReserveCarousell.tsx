@@ -37,6 +37,7 @@ const ReserveCarousell = ({
   const [photoIndex, setPhotoIndex] = useState(0);
   const [onPhoto, setOnPhoto] = useState(false);
   const [isTouching, setIsTouching] = useState(false);
+  const [videoIsShowing, setVideoIsShowing] = useState(false);
   const photoCount = (array: string[]) => array.length - 1;
   const videoElement = useRef(null);
   const {
@@ -165,16 +166,14 @@ const ReserveCarousell = ({
                 className={'w-full'}
               />
             )}
+
             {isVideo(photo) === 'mp4' && (
               <div>
-                <div>
-                  <button onClick={togglePlay}>start</button>
-                </div>
+                <button onClick={togglePlay}>start</button>
                 <video
                   src={photo}
                   draggable={false}
                   ref={videoElement}
-                  onTimeUpdate={handleOnTimeUpdate}
                   className={'w-full'}
                   controls
                 />
@@ -188,7 +187,7 @@ const ReserveCarousell = ({
           } z-50`}
         >
           <ChooseButton
-            direction="left"
+            direction="right"
             clickFn={nextPhoto}
             currentPage={currentPage}
             width={directionIconWidth}
@@ -202,7 +201,7 @@ const ReserveCarousell = ({
           } z-50`}
         >
           <ChooseButton
-            direction="right"
+            direction="left"
             clickFn={prevPhoto}
             currentPage={currentPage}
             width={directionIconWidth}
