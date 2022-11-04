@@ -77,7 +77,6 @@ const ReserveCarousell = ({
   }, [timerRef]);
   const selectPhotoIndex = (index: number) => {
     setPhotoIndex(index);
-    clearInterval(timerRef.current);
   };
   useEffect(() => {
     //  TODO change trace to useref
@@ -213,16 +212,12 @@ const ReserveCarousell = ({
       </span>
       <div className="flex">
         {photoArr.map((_, index) => (
-          <span
-            key={photoArr[index]}
-            onClick={() => {
-              addTimer();
-            }}
-          >
+          <span key={photoArr[index]}>
             <CarousellDot
               isPlaying={photoIndex === index}
               index={index}
               clickFn={selectPhotoIndex}
+              // FIXME too much 三元判斷
               width={currentPage === 'reservation' ? 'w-[13px]' : 'w-[8px]'}
               height={currentPage === 'reservation' ? 'h-[13px]' : 'h-[8px]'}
               defaultBgColor={
