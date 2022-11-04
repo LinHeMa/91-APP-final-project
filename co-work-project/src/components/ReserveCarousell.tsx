@@ -1,27 +1,62 @@
 import classNames from 'classnames';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import carousellImg from '../data/carousellImg';
 import CarousellDot from './CarousellDot';
 import ChooseButton from './ChooseButton';
 import Label from './Label';
 import { useMediaQuery } from 'usehooks-ts';
+import _ from 'lodash';
+import useVideoPlayer from '../hooks/useVideoPlayer';
+
+interface ReserveCarousellProps {
+  photoArr: string[];
+  leftPosition: string;
+  rightPosition: string;
+  currentPage: string;
+  directionIconWidth: string;
+  directionIconHeight: string;
+  directionIconTop: string;
+  photoWidth: string;
+  photoHeight: string;
+}
 interface touchEventTypes {
   trace: number[];
 }
 
-const ReserveCarousell = () => {
+const ReserveCarousell = ({
+  photoArr,
+  leftPosition,
+  rightPosition,
+  currentPage,
+  directionIconWidth,
+  directionIconHeight,
+  directionIconTop,
+  photoWidth,
+  photoHeight,
+}: ReserveCarousellProps) => {
   const onMobile = useMediaQuery('(max-width: 768px)');
   const [photoIndex, setPhotoIndex] = useState(0);
   const [onPhoto, setOnPhoto] = useState(false);
   const [isTouching, setIsTouching] = useState(false);
   const photoCount = (array: string[]) => array.length - 1;
+  const videoElement = useRef(null);
+  const {
+    isPlaying,
+    progress,
+    isMuted,
+    togglePlay,
+    handleOnTimeUpdate,
+    handleVideoProgress,
+    setIsPlaying,
+    toggleMute,
+  } = useVideoPlayer(videoElement);
+  console.log(setIsPlaying);
   const nextPhoto = () => {
     console.log('next', photoIndex);
-    if (photoIndex === photoCount(carousellImg)) return setPhotoIndex(0);
+    if (photoIndex === photoCount(photoArr)) return setPhotoIndex(0);
     setPhotoIndex((prev) => prev + 1);
   };
   const prevPhoto = () => {
-    if (photoIndex === 0) return setPhotoIndex(photoCount(carousellImg));
+    if (photoIndex === 0) return setPhotoIndex(photoCount(photoArr));
     setPhotoIndex((prev) => prev - 1);
   };
   const timerRef = useRef<ReturnType<typeof setInterval>>();
@@ -35,7 +70,7 @@ const ReserveCarousell = () => {
   const addTimer = useCallback(() => {
     timerRef.current = setInterval(() => {
       setPhotoIndex((prev) => {
-        if (prev === photoCount(carousellImg)) return 0;
+        if (prev === photoCount(photoArr)) return 0;
         return prev + 1;
       });
     }, 2000);
@@ -53,6 +88,10 @@ const ReserveCarousell = () => {
       clearInterval(timerRef.current);
     };
   }, [addTimer, onPhoto, isTouching]);
+
+  const isVideo = (file: string) => {
+    return _.findLast(_.split(file, '.'));
+  };
 
   return (
     <div
@@ -88,46 +127,94 @@ const ReserveCarousell = () => {
         if (touchStartAt && touchEndAt) dragPhoto(touchStartAt, touchEndAt);
       }}
     >
-      <span className="relative w-[359px] h-[424px] flex overflow-hidden justify-center items-center">
-        <span className=" absolute top-10 right-5 z-50">
-          <Label total={photoCount(carousellImg) + 1} index={photoIndex + 1} />
-        </span>
-        <div className=" absolute bg-white w-full h-full top-0 left-0 z-10" />
-        {carousellImg.map((photo, index) => (
-          <img
-            draggable={false}
-            src={photo}
+      <span
+        className={`relative ${photoWidth} ${photoHeight} flex overflow-hidden justify-center items-center`}
+      >
+        {currentPage === 'reservation' && (
+          <span className=" absolute top-10 right-5 z-50">
+            <Label total={photoCount(photoArr) + 1} index={photoIndex + 1} />
+          </span>
+        )}
+
+        <div className=" absolute bg-[#fafafa] w-full h-full top-0 left-0 z-10" />
+        {photoArr.map((photo, index) => (
+          <div
             key={photo}
-            alt="iphone照片"
             className={classNames({
-              'absolute min-w-[358px] z-0 ': true,
-              '-left-[359px] duration-700': index === photoIndex - 1,
-              '-left-[359px] opacity-0 duration-700':
-                index === photoCount(carousellImg) &&
+              'absolute z-0 min-w-full ': true,
+              [`${leftPosition} duration-700`]: index === photoIndex - 1,
+              [`${leftPosition} duration-700 opacity-0`]:
+                index === photoCount(photoArr) &&
                 index !== photoIndex - 1 &&
                 index !== photoIndex &&
                 index !== photoIndex + 1,
               'left-0 z-40 duration-700': index === photoIndex,
-              'left-[359px] duration-700': index === photoIndex + 1,
-              'left-[359px] opacity-0 duration-700':
+              [`${rightPosition} duration-700`]: index === photoIndex + 1,
+              [`${rightPosition} duration-700 opacity-0`]:
                 index === 0 &&
                 index !== photoIndex - 1 &&
                 index !== photoIndex &&
                 index !== photoIndex + 1,
             })}
-          />
+          >
+            {isVideo(photo) === 'png' && (
+              <img
+                src={photo}
+                alt="iphone照片"
+                draggable={false}
+                className={'w-full'}
+              />
+            )}
+            {isVideo(photo) === 'mp4' && (
+              <div>
+                <div>
+                  <button onClick={togglePlay}>start</button>
+                </div>
+                <video
+                  src={photo}
+                  draggable={false}
+                  ref={videoElement}
+                  onTimeUpdate={handleOnTimeUpdate}
+                  className={'w-full'}
+                  controls
+                />
+              </div>
+            )}
+          </div>
         ))}
-        <span className="absolute top-[210px] right-0 z-50">
-          <ChooseButton direction="left" clickFn={nextPhoto} />
+        <span
+          className={`absolute ${directionIconTop} ${
+            currentPage === 'product' ? 'right-2' : 'right-0'
+          } z-50`}
+        >
+          <ChooseButton
+            direction="left"
+            clickFn={nextPhoto}
+            currentPage={currentPage}
+            width={directionIconWidth}
+            height={directionIconHeight}
+            shouldShowButton={photoIndex === photoArr.length - 1}
+          />
         </span>
-        <span className="absolute top-[210px] left-0 z-50">
-          <ChooseButton direction="right" clickFn={prevPhoto} />
+        <span
+          className={`absolute ${directionIconTop} ${
+            currentPage === 'product' ? 'left-2' : 'left-0'
+          } z-50`}
+        >
+          <ChooseButton
+            direction="right"
+            clickFn={prevPhoto}
+            currentPage={currentPage}
+            width={directionIconWidth}
+            height={directionIconHeight}
+            shouldShowButton={photoIndex === 0}
+          />
         </span>
       </span>
       <div className="flex">
-        {carousellImg.map((_, index) => (
+        {photoArr.map((_, index) => (
           <span
-            key={carousellImg[index]}
+            key={photoArr[index]}
             onClick={() => {
               addTimer();
             }}
@@ -136,12 +223,22 @@ const ReserveCarousell = () => {
               isPlaying={photoIndex === index}
               index={index}
               clickFn={selectPhotoIndex}
-              width="w-[13px]"
-              height="h-[13px]"
-              borderColor="border-[#D2D2D2]"
-              bgColor="bg-[#D9D9D9]"
-              marginRight="mr-[8px]"
-              totalLength={carousellImg.length}
+              width={currentPage === 'reservation' ? 'w-[13px]' : 'w-[8px]'}
+              height={currentPage === 'reservation' ? 'h-[13px]' : 'h-[8px]'}
+              defaultBgColor={
+                currentPage === 'reservation' ? '' : 'bg-[#D8D9D8]'
+              }
+              borderColor={
+                currentPage === 'reservation' ? 'border-[#D2D2D2]' : ''
+              }
+              bgColor={
+                currentPage === 'reservation' ? 'bg-[#D9D9D9]' : 'bg-[#4B4E5B]'
+              }
+              marginRight={
+                currentPage === 'reservation' ? 'mr-[8px]' : 'mr-[10px]'
+              }
+              totalLength={photoArr.length}
+              currentPage={currentPage}
             />
           </span>
         ))}
