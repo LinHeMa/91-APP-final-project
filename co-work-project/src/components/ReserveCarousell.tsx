@@ -183,11 +183,11 @@ const ReserveCarousell = ({
         ))}
         <span
           className={`absolute ${directionIconTop} ${
-            currentPage === 'product' ? 'right-2' : 'right-0'
+            currentPage === 'product' ? 'right-2' : 'right-7'
           } z-50`}
         >
           <ChooseButton
-            direction="left"
+            direction="right"
             clickFn={nextPhoto}
             currentPage={currentPage}
             width={directionIconWidth}
@@ -201,7 +201,7 @@ const ReserveCarousell = ({
           } z-50`}
         >
           <ChooseButton
-            direction="right"
+            direction="left"
             clickFn={prevPhoto}
             currentPage={currentPage}
             width={directionIconWidth}
