@@ -1,5 +1,5 @@
-import leftArrow from '../assets/reserve/leftArrow.png';
-import rightArrow from '../assets/reserve/rightArrow.png';
+import rightArrow from '../assets/reserve/leftArrow.png';
+import leftArrow from '../assets/reserve/rightArrow.png';
 import rightImg from '../assets/productImgs/rightIcon.png';
 import leftImg from '../assets/productImgs/leftIcon.png';
 
@@ -39,7 +39,7 @@ const ChooseButton = ({
       )}
       {currentPage === 'product' && (
         <img
-          src={direction === 'right' ? leftImg : rightImg}
+          src={direction === 'right' ? rightImg : leftImg}
           alt="directionBtn"
         />
       )}
