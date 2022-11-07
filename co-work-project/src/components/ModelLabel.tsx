@@ -10,7 +10,6 @@ interface ModelLabelProps {
 
 const ModelLabel = ({ name, color }: ModelLabelProps) => {
   const { state } = useOutletContext<ContextType>();
-  
   return (
     <div
       className={classNames({
@@ -27,7 +26,7 @@ const ModelLabel = ({ name, color }: ModelLabelProps) => {
           'text-[13px] flex whitespace-nowrap': true,
         })}
       >
-        {name}
+        {name === '1000GB' ? '1TB' : name}
       </h1>
       {color && (
         <div
