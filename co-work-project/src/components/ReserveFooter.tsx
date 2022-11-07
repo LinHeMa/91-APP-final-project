@@ -22,8 +22,8 @@ const ReserveFooter = ({ state }: ReserveFooterProps) => {
       }
       case 'product': {
         if (!isUserValid(state) || !isProductValid(state)) {
-          console.log('wrong')
-          return};
+          return;
+        }
         navigate('/reservation/successpage');
         break;
       }
@@ -71,7 +71,10 @@ const ReserveFooter = ({ state }: ReserveFooterProps) => {
         form="form"
         type={secondPathName === 'submitform' ? 'submit' : 'button'}
         id="form"
-        onClick={() => handleClick(secondPathName)}
+        onClick={_.debounce((e) => {
+          e.stopPropagation();
+          handleClick(secondPathName);
+        }, 500)}
         className="cursor-pointer w-[85%] h-[40px] md:h-[50px] mb-[14px] bg-[#FF5353] rounded-[5px] flex justify-center items-center text-white max-w-[1080px]"
       >
         搶先登記
