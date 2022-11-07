@@ -62,6 +62,7 @@ const ProductPicker = () => {
           const { color, colorName } = variation;
           return (
             <span
+              key={index}
               className="mr-[10px] mb-[10px]"
               onClick={() => {
                 dispatch({
@@ -84,6 +85,7 @@ const ProductPicker = () => {
         {retrunMemoryArray(iphoneData, state.model)?.map((memory, index) => {
           return (
             <span
+              key={index}
               className="mr-[10px] mb-[10px]"
               onClick={() => {
                 dispatch({
