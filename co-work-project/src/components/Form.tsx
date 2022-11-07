@@ -30,7 +30,6 @@ const Form = () => {
       type: chooseActionKind.CHANGE_USER_PHONE_NUM,
       payload: phoneNum,
     });
-    console.log(state);
     navigate('/reservation/product', { state: { ...state } });
   };
 
@@ -95,7 +94,7 @@ const Form = () => {
                 hidden: errors.手機號碼 === undefined,
               })}
             >
-              請輸入中文姓名，限制2~7個字
+              手機號碼格式錯誤，請重新輸入
             </p>
           </div>
         </div>
@@ -118,7 +117,7 @@ const Form = () => {
             hidden: errors.輸入Email === undefined,
           })}
         >
-          請輸入中文姓名，限制2~7個字
+          Email 格式錯誤，請重新輸入
         </p>
         <div className="flex items-center mt-[15px]">
           <input
