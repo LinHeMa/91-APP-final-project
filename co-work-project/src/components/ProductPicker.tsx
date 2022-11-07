@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { useOutletContext } from 'react-router-dom';
 import {
   chooseActionKind,
@@ -23,6 +23,10 @@ const ProductPicker = () => {
     return item.model === state.model && item.memory === state.memory;
   })[0]?.price;
 
+  useEffect(() => {
+    if (!price || price === 0) return;
+    dispatch({ type: chooseActionKind.CHANGE_PRICE, payload: price });
+  }, [state.model, state.memory]);
   return (
     <div className="w-full md:max-w-[376px] px-4 md:px-0">
       <h1 className="text-[16px] leading-[23px]">APPLE {state.model}</h1>
@@ -39,6 +43,7 @@ const ProductPicker = () => {
           return (
             <span
               className="mr-[10px] mb-[10px]"
+              key={index}
               onClick={() => {
                 dispatch({
                   type: chooseActionKind.CHANGE_MODEL,

@@ -14,7 +14,6 @@ const Product = () => {
     (item) => _.includes(item.iphone, state.model) && item.color === state.color
   )[0]?.img;
   useEffect(() => {
-    console.log('product', state);
     if (chooseImg)
       dispatch({
         type: chooseActionKind.CHANGE_IMG,

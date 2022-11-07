@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import _ from 'lodash';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { stateType } from '../pages/reservation/ReservationIndex';
+import { isProductValid, isUserValid } from '../util/guard';
 interface ReserveFooterProps {
   state: stateType[];
 }
@@ -15,10 +16,14 @@ const ReserveFooter = ({ state }: ReserveFooterProps) => {
   const handleClick = (path: string) => {
     switch (path) {
       case 'submitform': {
+        if (!isUserValid(state)) return;
         navigate('/reservation/product');
         break;
       }
       case 'product': {
+        if (!isUserValid(state) || !isProductValid(state)) {
+          console.log('wrong')
+          return};
         navigate('/reservation/successpage');
         break;
       }
