@@ -74,7 +74,8 @@ const ReserveFooter = ({ state }: ReserveFooterProps) => {
     <footer className="flex-col w-[100vw] bg-white flex  justify-center items-center drop-shadow-sm flex-shrink-0">
       <p
         className={classNames({
-          'w-[85%] flex items-center my-[10px] text-[#FF5353]': true,
+          'w-[85%] flex items-center my-[10px] text-[#FF5353] max-w-[1080px]':
+            true,
           'justify-between': secondPathName === 'product',
           'justify-center': secondPathName === 'successpage',
         })}
