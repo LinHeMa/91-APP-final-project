@@ -20,7 +20,7 @@ const ProductPicker = () => {
   }
 
   return (
-    <div className="max-w-[376px] ">
+    <div className="w-full md:max-w-[376px] px-4 md:px-0">
       <h1 className="text-[16px] leading-[23px]">APPLE {state.model}</h1>
       <h2 className="text-[#FF5353] text-[20px] leading-[29px] mt-[19px]">
         NT${71680}
