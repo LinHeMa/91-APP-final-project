@@ -20,7 +20,6 @@ const ProductSlider = () => {
     if (isDivisible) return 5 * (times - 1);
     return times + remainder;
   };
-  console.log(state);
   return (
     <div className="w-[375px] md:w-[426px] relative productPage:pb-[98px] mx-[20px]">
       <img src={state.img || state.prevImg} alt="iphone" className="w-full" />
@@ -40,7 +39,8 @@ const ProductSlider = () => {
             key={photo.img}
             style={{ left: `${70.2 * (index - maxindex)}px` }}
             className={classNames({
-              'max-h-[83px] w-auto duration-300 transition-all': true,
+              'max-h-[83px] w-auto duration-300 transition-all cursor-pointer':
+                true,
               absolute: true,
             })}
             onClick={() => {
@@ -64,7 +64,6 @@ const ProductSlider = () => {
       <div
         className="cursor-pointer absolute bottom-[45px] -right-[17.57px]  hidden productPage:block"
         onClick={() => {
-          console.log(clickLimit(singleIphoneImg));
           if (maxindex >= clickLimit(singleIphoneImg)) return;
           setMaxindex((pre) => pre + 1);
         }}
