@@ -191,7 +191,6 @@ const ReserveCarousell = ({
 
             {isVideo(photo) && (
               <div>
-                <button onClick={togglePlay}>start</button>
                 <video
                   onTimeUpdate={handleOnTimeUpdate}
                   src={photo}
