@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import { useEffect } from 'react';
-import { useOutletContext } from 'react-router-dom';
+import { useLocation, useOutletContext } from 'react-router-dom';
 import ProductPicker from '../../components/ProductPicker';
 import ProductSlider from '../../components/ProductSlider';
 import { singleIphoneImg } from '../../data/carousellImg';
@@ -8,6 +8,7 @@ import { chooseActionKind, ContextType } from './ReservationIndex';
 
 const Product = () => {
   const { state, dispatch, iphoneData } = useOutletContext<ContextType>();
+  const { state: formState } = useLocation();
   const chooseImg = _.filter(
     singleIphoneImg,
     (item) => _.includes(item.iphone, state.model) && item.color === state.color

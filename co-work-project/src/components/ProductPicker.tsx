@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import { useEffect, useRef } from 'react';
 import { useOutletContext } from 'react-router-dom';
 import {
   chooseActionKind,
@@ -18,12 +19,15 @@ const ProductPicker = () => {
   function retrunMemoryArray(data: stateType[], filter: string) {
     return _.map(_.filter(data, { model: filter }), (item) => item.memory);
   }
+  const price = _.filter(iphoneData, (item) => {
+    return item.model === state.model && item.memory === state.memory;
+  })[0]?.price;
 
   return (
     <div className="w-full md:max-w-[376px] px-4 md:px-0">
       <h1 className="text-[16px] leading-[23px]">APPLE {state.model}</h1>
       <h2 className="text-[#FF5353] text-[20px] leading-[29px] mt-[19px]">
-        NT${71680}
+        NT${price || 0}
       </h2>
       <p className="text-[#FF5353] text-[14px]">
         登記的手機號碼需與會員手機號碼相同，每人限購一支

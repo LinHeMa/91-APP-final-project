@@ -13,6 +13,9 @@ export enum chooseActionKind {
   CHANGE_COLORNAME = 'CHANGE_COLORNAME',
   CHANGE_QTY = 'CHANGE_QTY',
   CHANGE_IMG = 'CHANGE_IMG',
+  CHANGE_USER_NAME = 'CHANGE_USER_NAME',
+  CHANGE_USER_PHONE_NUM = 'CHANGE_USER_PHONE_NUM',
+  CHANGE_USER_EMAIL = 'CHANGE_USER_EMAIL',
 }
 interface chooseAction {
   type: chooseActionKind;
@@ -32,6 +35,9 @@ export interface stateType {
 }
 
 export interface initialStateType extends stateType {
+  userName: string;
+  userPhoneNum: string;
+  userEmail: string;
   color: string;
   colorName: string;
   qty: number;
@@ -40,6 +46,9 @@ export interface initialStateType extends stateType {
 }
 
 const initialState: initialStateType = {
+  userName: '',
+  userPhoneNum: '',
+  userEmail: '',
   model: 'iPhone 13 Mini',
   memory: 128,
   price: 22900,
@@ -88,6 +97,26 @@ function reducer(state: stateType[], action: chooseAction) {
         img: payload,
         prevImg: payload,
       };
+    case chooseActionKind.CHANGE_PRICE:
+      return {
+        ...state,
+        price: payload,
+      };
+    case chooseActionKind.CHANGE_USER_NAME:
+      return {
+        ...state,
+        userName: payload,
+      };
+    case chooseActionKind.CHANGE_USER_EMAIL:
+      return {
+        ...state,
+        userEmail: payload,
+      };
+    case chooseActionKind.CHANGE_USER_PHONE_NUM:
+      return {
+        ...state,
+        userPhoneNum: payload,
+      };
     default:
       return state;
   }
@@ -103,7 +132,7 @@ const ReservationIndex = () => {
         <Outlet context={{ state, dispatch, iphoneData }} />
       </div>
       <div className=" flex-shrink-0">
-        <ReserveFooter state={state}/>
+        <ReserveFooter state={state} />
       </div>
     </div>
   );
