@@ -54,7 +54,7 @@ const data: iphone[] = [
       {
         color: '#c72232',
         colorName: '紅色',
-        qty: 5,
+        qty: 0,
         img: iphone_red,
       },
     ],
