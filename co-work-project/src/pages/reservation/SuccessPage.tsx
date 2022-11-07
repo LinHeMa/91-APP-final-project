@@ -44,8 +44,7 @@ const SuccessPage = () => {
                   <span className=" text-[#333333]">
                     {state.model +
                       ' , ' +
-                      state.memory +
-                      'GB ' +
+                      (state.memory === 1000 ? '1TB' : state.memory + 'GB ') +
                       state.colorName}
                   </span>
                 </div>
