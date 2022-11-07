@@ -53,6 +53,23 @@ const ReserveFooter = ({ state }: ReserveFooterProps) => {
       }
     }
   };
+  const footerButtonText = (path: string) => {
+    switch (path) {
+      case 'submitform': {
+        return '選擇商品';
+      }
+      case 'product': {
+        return '送出';
+      }
+      case 'successpage': {
+        return '加入會員';
+      }
+      default: {
+        return '搶先登記';
+      }
+    }
+  };
+
   return (
     <footer className="flex-col w-[100vw] bg-white flex  justify-center items-center drop-shadow-sm flex-shrink-0">
       <p
@@ -77,7 +94,7 @@ const ReserveFooter = ({ state }: ReserveFooterProps) => {
         }, 500)}
         className="cursor-pointer w-[85%] h-[40px] md:h-[50px] mb-[14px] bg-[#FF5353] rounded-[5px] flex justify-center items-center text-white max-w-[1080px]"
       >
-        搶先登記
+        {footerButtonText(secondPathName)}
       </button>
     </footer>
   );
