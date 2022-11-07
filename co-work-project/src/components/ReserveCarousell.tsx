@@ -162,7 +162,7 @@ const ReserveCarousell = ({
         <div className=" absolute bg-[#fafafa] w-full h-full top-0 left-0 z-10" />
         {photoArr.map((photo, index) => (
           <div
-            key={photo + _.toString(index)}
+            key={_.toString(index)}
             className={classNames({
               'absolute z-0 min-w-full ': true,
               [`${leftPosition} duration-700`]: index === photoIndex - 1,
@@ -195,8 +195,8 @@ const ReserveCarousell = ({
                   onTimeUpdate={handleOnTimeUpdate}
                   src={photo}
                   draggable={false}
-                  ref={videoElement}
-                  className={'w-full'}
+                  ref={photoIndex === index ? videoElement : null}
+                  className={`${photoWidth} ${photoHeight}`}
                   controls
                 />
               </div>
