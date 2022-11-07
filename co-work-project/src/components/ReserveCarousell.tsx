@@ -205,7 +205,7 @@ const ReserveCarousell = ({
         ))}
         <span
           className={`absolute ${directionIconTop} ${
-            currentPage === 'product' ? 'right-2' : 'right-0'
+            currentPage === 'product' ? 'right-2' : 'right-7'
           } z-50`}
         >
           <ChooseButton
