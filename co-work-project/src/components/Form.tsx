@@ -1,4 +1,9 @@
 import { useForm } from 'react-hook-form';
+import { useNavigate, useOutletContext } from 'react-router-dom';
+import {
+  chooseActionKind,
+  ContextType,
+} from '../pages/reservation/ReservationIndex';
 
 const Form = () => {
   const {
@@ -7,8 +12,23 @@ const Form = () => {
     getValues,
     formState: { errors },
   } = useForm();
+  const { state, dispatch, iphoneData } = useOutletContext<ContextType>();
+  const navigate = useNavigate();
   const onSubmit = () => {
-    console.log(getValues());
+    // TODO guard clause
+    const {
+      請輸入姓名: name,
+      手機號碼: phoneNum,
+      輸入Email: email,
+    } = getValues();
+    dispatch({ type: chooseActionKind.CHANGE_USER_NAME, payload: name });
+    dispatch({ type: chooseActionKind.CHANGE_USER_EMAIL, payload: email });
+    dispatch({
+      type: chooseActionKind.CHANGE_USER_PHONE_NUM,
+      payload: phoneNum,
+    });
+    console.log(state);
+    navigate('/reservation/product', { state: { ...state } });
   };
   console.log(errors);
 

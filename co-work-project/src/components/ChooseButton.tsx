@@ -1,5 +1,5 @@
-import rightArrow from '../assets/reserve/left_Arrow.png';
-import leftArrow from '../assets/reserve/right_Arrow.png';
+import rightArrow from '../assets/reserve/rightArrow.png';
+import leftArrow from '../assets/reserve/leftArrow.png';
 import rightImg from '../assets/productImgs/rightIcon.png';
 import leftImg from '../assets/productImgs/leftIcon.png';
 

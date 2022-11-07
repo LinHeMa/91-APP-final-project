@@ -19,11 +19,13 @@ root.render(
         <Route index element={<Homepage />} />
         <Route path="reservation" element={<ReservationIndex />}>
           <Route index element={<Reservation />} />
-          <Route path="sumbitform" element={<SumbitForm />} />
+          <Route path="submitform" element={<SumbitForm />} />
           <Route path="product" element={<Product />} />
           <Route path="successpage" element={<SuccessPage />} />
+          <Route path="*" element={<Reservation />} />
         </Route>
         <Route path="productdetail" element={<ProductDetail />} />
+        <Route path="*" element={<Homepage />} />
       </Route>
     </Routes>
   </BrowserRouter>

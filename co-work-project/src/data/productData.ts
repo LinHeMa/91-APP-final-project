@@ -10,6 +10,7 @@ import product3BigImg from '../assets/productImgs/product3Big.png';
 import product4BigImg from '../assets/productImgs/product4Big.png';
 import product5BigImg from '../assets/productImgs/product5Big.png';
 import video from '../assets/productImgs/video.mp4';
+import rowVideo from '../assets/productImgs/rowVideo.mp4';
 import sidebar1 from '../assets/productImgs/sidebar1.png';
 import sidebar2 from '../assets/productImgs/sidebar2.png';
 import sidebar3 from '../assets/productImgs/sidebar3.png';
@@ -134,6 +135,7 @@ export const productOtherLookBook = {
 export const productImgArr = [
   product1BigImg,
   product2BigImg,
+  rowVideo,
   product3BigImg,
   product4BigImg,
   product5BigImg,
