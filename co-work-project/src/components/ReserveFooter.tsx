@@ -22,8 +22,9 @@ const ReserveFooter = ({ state }: ReserveFooterProps) => {
       }
       case 'product': {
         if (!isUserValid(state) || !isProductValid(state)) {
-          console.log('wrong')
-          return};
+          console.log('wrong');
+          return;
+        }
         navigate('/reservation/successpage');
         break;
       }
@@ -53,11 +54,28 @@ const ReserveFooter = ({ state }: ReserveFooterProps) => {
       }
     }
   };
+  const buttonText = (path: string) => {
+    switch (path) {
+      case 'submitform': {
+        return '選擇商品';
+      }
+      case 'product': {
+        return '送出';
+      }
+      case 'successpage': {
+        return '加入會員';
+      }
+      default: {
+        return '搶先登記';
+      }
+    }
+  };
   return (
     <footer className="flex-col w-[100vw] bg-white flex  justify-center items-center drop-shadow-sm flex-shrink-0">
       <p
         className={classNames({
-          'w-[85%] flex items-center my-[10px] text-[#FF5353]': true,
+          'w-[85%] max-w-[1080px] flex items-center my-[10px] text-[#FF5353]':
+            true,
           'justify-between': secondPathName === 'product',
           'justify-center': secondPathName === 'successpage',
         })}
@@ -74,7 +92,7 @@ const ReserveFooter = ({ state }: ReserveFooterProps) => {
         onClick={() => handleClick(secondPathName)}
         className="cursor-pointer w-[85%] h-[40px] md:h-[50px] mb-[14px] bg-[#FF5353] rounded-[5px] flex justify-center items-center text-white max-w-[1080px]"
       >
-        搶先登記
+        {buttonText(secondPathName)}
       </button>
     </footer>
   );
