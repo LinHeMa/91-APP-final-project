@@ -9,6 +9,7 @@ import {
   footerShopInfoData,
   footerSerivceData,
 } from '../../data/productData';
+import classNames from 'classnames';
 
 const fansArr = [fbImg, lineImg, igImg];
 
@@ -31,9 +32,12 @@ function ProductFooter() {
             {footerContactData.map((contact, index) => (
               <div
                 key={index}
-                className={`mb-2 w-[100px] h-5 ${
-                  index === 0 ? 'text-[16px]' : 'text-[12px]'
-                } text-[#333333] cursor-pointer`}
+                className={classNames({
+                  'mb-2 w-[100px] min-h-[20px] text-[12px] text-[#333333] cursor-pointer':
+                    true,
+                  'text-[16px]': index === 0,
+                  'hover:underline': index !== 0,
+                })}
               >
                 {contact}
               </div>
@@ -43,9 +47,12 @@ function ProductFooter() {
             {footerShopInfoData.map((info, index) => (
               <div
                 key={index}
-                className={`mb-2 w-[100px] h-5 ${
-                  index === 0 ? 'text-[16px]' : 'text-[12px]'
-                } text-[#333333] cursor-pointer`}
+                className={classNames({
+                  'mb-2 w-[100px] min-h-[20px] text-[12px] text-[#333333] cursor-pointer':
+                    true,
+                  'text-[16px]': index === 0,
+                  'hover:underline': index !== 0,
+                })}
               >
                 {info}
               </div>
@@ -55,9 +62,12 @@ function ProductFooter() {
             {footerSerivceData.map((service, index) => (
               <div
                 key={index}
-                className={`mb-2 w-[100px] h-5 ${
-                  index === 0 ? 'text-[16px]' : 'text-[12px]'
-                } text-[#333333] cursor-pointer`}
+                className={classNames({
+                  'mb-2 w-[100px] min-h-[20px] text-[12px] text-[#333333] cursor-pointer':
+                    true,
+                  'text-[16px]': index === 0,
+                  'hover:underline': index !== 0,
+                })}
               >
                 {service}
               </div>

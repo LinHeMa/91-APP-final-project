@@ -66,7 +66,7 @@ function ProductHeader() {
                   key={index}
                   className="flex  mb-[15px] h-[20px] mr-5 cursor-pointer"
                 >
-                  <div className="text-[14px]">{data.title}</div>
+                  <div className="text-[14px] mr-[3px]">{data.title}</div>
                   {data.content.length !== 0 && (
                     <div className="w-5 h-5 flex justify-center items-center">
                       <img

@@ -8,13 +8,9 @@ import {
   sidebarData,
   productImgArr,
 } from '../../data/productData';
-import product1Img from '../../assets/productImgs/AA 1.png';
 import ProductNav from '../../components/product/ProductNav';
 import ProductLookbook from '../../components/product/ProductLookbook';
-import CarousellDot from '../../components/CarousellDot';
-import { useState } from 'react';
 import ReserveCarousell from '../../components/ReserveCarousell';
-import _ from 'lodash';
 
 const ProductDetail = () => {
   return (
@@ -70,6 +66,7 @@ const ProductDetail = () => {
                         currentPrice={data.currentPrice}
                         photo={data.photo}
                         status={data.status}
+                        isLastData={index === sidebarData.length - 1}
                       />
                     </div>
                   ))}
