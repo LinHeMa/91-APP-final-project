@@ -1,6 +1,10 @@
+import { useEffect } from 'react';
 import Form from '../../components/Form';
 
 const SumbitForm = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="w-full items-center bg-[#f2f2f2] md:pb-[143px]">
       <div className="text-center pt-[30px] pb-[20px] md:pt-[56px] ">

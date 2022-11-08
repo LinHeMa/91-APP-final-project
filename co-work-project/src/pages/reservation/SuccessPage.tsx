@@ -13,6 +13,7 @@ const SuccessPage = () => {
   })[0].price;
   const navigate = useNavigate();
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (!isFormDataCompelete(state) || !isProductDataCompelete(state))
       navigate('/reservation');
   });

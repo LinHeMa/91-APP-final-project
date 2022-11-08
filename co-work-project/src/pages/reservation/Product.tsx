@@ -26,6 +26,9 @@ const Product = () => {
         payload: chooseImg,
       });
   }, [state.color]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="md:bg-[#f2f2f2] md:pb-[122px]">
