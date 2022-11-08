@@ -9,7 +9,6 @@ const SuccessPage = () => {
   const price = _.filter(iphoneData, (item) => {
     return item.model === state.model && item.memory === state.memory;
   })[0].price;
-  console.log(state);
   return (
     <div className="flex flex-col justify-center items-center ">
       <h1 className="w-[300px] h-[40px] text-[24px] font-bold  mt-[30px] flex justify-center items-center mb-[2px] md:text-[64px] md:w-[713px] md:h-[80px]">
@@ -45,8 +44,7 @@ const SuccessPage = () => {
                   <span className=" text-[#333333]">
                     {state.model +
                       ' , ' +
-                      state.memory +
-                      'GB ' +
+                      (state.memory === 1000 ? '1TB' : state.memory + 'GB ') +
                       state.colorName}
                   </span>
                 </div>

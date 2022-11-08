@@ -53,7 +53,6 @@ const ReserveCarousell = ({
     return resultIndexArray;
   }
   vidRef.current = findAllIndex(photoArr);
-  console.log(vidRef.current);
   const {
     isPlaying,
     progress,
@@ -87,7 +86,7 @@ const ReserveCarousell = ({
         if (prev === photoCount(photoArr)) return 0;
         return prev + 1;
       });
-    }, 2000);
+    }, 3000);
   }, [timerRef]);
   const selectPhotoIndex = (index: number) => {
     setPhotoIndex(index);
@@ -115,7 +114,6 @@ const ReserveCarousell = ({
       setProgress(0);
     }
   }, [isPlaying]);
-  console.log(isPlaying, progress);
   return (
     <div
       className="flex flex-col justify-center items-center"
