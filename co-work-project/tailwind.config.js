@@ -22,6 +22,16 @@ module.exports = {
       sm: '0 -3px 6px rgba(0, 0, 0, 0.1)',
       caro: '0 0 10px #0003',
     },
+    extend: {
+      animation: { spin: 'spin 0.1s linear infinite' },
+      // keyframes: {
+      //   wiggle: {
+      //     '0%, 100%': { transform: 'rotate(-3deg)' },
+      //     '50%': { transform: 'rotate(3deg)' },
+      //   }
+      // }
+    },
   },
+
   plugins: [require('@tailwindcss/line-clamp'), require('@tailwindcss/forms')],
 };
