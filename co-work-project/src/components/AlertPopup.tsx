@@ -1,4 +1,3 @@
-
 interface AlertPopupProps {
   isOpen: boolean;
   close: () => void;
@@ -6,9 +5,9 @@ interface AlertPopupProps {
 
 function AlertPopup({ isOpen, close }: AlertPopupProps) {
   return isOpen ? (
-    <div className='relative'>
+    <div>
       <div className=" fixed bottom-0 left-0 right-0 w-full h-[1000vh] z-50 bg-black opacity-30" />
-      <div className="fixed bottom-[60vh] left-[40vw] right-[50vw] z-50 w-[290px] h-[165px] bg-[#ffffff] flex flex-col justify-center rounded-[8px] drop-shadow-popup">
+      <div className="fixed bottom-[45vh] left-[40vw]  z-50 w-[290px] h-[165px] bg-[#ffffff] flex flex-col justify-center rounded-[8px] drop-shadow-popup">
         <h1 className="flex items-center justify-center h-[40px] mx-auto text-center mb-[9.5px] text-[#333333]">
           請選擇商品選項
         </h1>
