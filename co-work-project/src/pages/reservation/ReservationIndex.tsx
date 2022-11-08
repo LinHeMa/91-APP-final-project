@@ -3,7 +3,6 @@ import { Outlet } from 'react-router-dom';
 import { data as iphoneData } from '../../data/iphoneData';
 import ReserveFooter from '../../components/ReserveFooter';
 import ReserveHeader from '../../components/ReserveHeader';
-import _ from 'lodash';
 import iphone_blue from '../../assets/reserve/iphone-13-blue-select-2021.png';
 export enum chooseActionKind {
   CHANGE_MODEL = 'CHANGE_MODEL',
