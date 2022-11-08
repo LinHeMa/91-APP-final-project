@@ -53,7 +53,9 @@ const ReserveFooter = ({ state }: ReserveFooterProps) => {
       }
     }
   };
+
   const footerButtonText = (path: string) => {
+
     switch (path) {
       case 'submitform': {
         return '選擇商品';
