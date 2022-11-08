@@ -21,10 +21,10 @@ const ProductSlider = () => {
     return times + remainder;
   };
   return (
-    <div className="w-[375px] md:w-[426px] relative productPage:pb-[98px] mx-[20px]">
+    <div className="w-[375px] md:w-[426px] relative md:pb-[98px] mx-[20px]">
       <img src={state.img || state.prevImg} alt="iphone" className="w-full" />
       <div
-        className="cursor-pointer absolute bottom-[40px] -left-[17.57px]  hidden productPage:block"
+        className="cursor-pointer absolute bottom-[40px] -left-[17.57px]  hidden md:block"
         onClick={() => {
           if (maxindex === 0) return;
           setMaxindex((pre) => pre - 1);
@@ -32,7 +32,7 @@ const ProductSlider = () => {
       >
         <img src={leftArrow} alt="往左" />
       </div>
-      <div className="max-w-[427px] w-[360px] h-[83.6px] overflow-hidden absolute hidden productPage:flex left-10 ">
+      <div className="max-w-[427px] w-[360px] h-[83.6px] overflow-hidden absolute hidden md:flex left-10 ">
         {singleIphoneImg.map((photo, index) => (
           <img
             src={photo.img}
@@ -62,7 +62,7 @@ const ProductSlider = () => {
         ))}
       </div>
       <div
-        className="cursor-pointer absolute bottom-[45px] -right-[17.57px]  hidden productPage:block"
+        className="cursor-pointer absolute bottom-[45px] -right-[17.57px]  hidden md:block"
         onClick={() => {
           if (maxindex >= clickLimit(singleIphoneImg)) return;
           setMaxindex((pre) => pre + 1);
