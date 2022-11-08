@@ -1,8 +1,14 @@
-function AlertPopup() {
-  return (
-    <>
-      <div className="fixed top-0 right-0 w-full h-full z-50 bg-black opacity-30"></div>
-      <div className="fixed top-[35vh] z-50 w-[290px] h-[165px] bg-[#ffffff] flex flex-col justify-center rounded-[8px] drop-shadow-popup">
+
+interface AlertPopupProps {
+  isOpen: boolean;
+  close: () => void;
+}
+
+function AlertPopup({ isOpen, close }: AlertPopupProps) {
+  return isOpen ? (
+    <div className='relative'>
+      <div className=" fixed bottom-0 left-0 right-0 w-full h-[1000vh] z-50 bg-black opacity-30" />
+      <div className="fixed bottom-[60vh] left-[40vw] right-[50vw] z-50 w-[290px] h-[165px] bg-[#ffffff] flex flex-col justify-center rounded-[8px] drop-shadow-popup">
         <h1 className="flex items-center justify-center h-[40px] mx-auto text-center mb-[9.5px] text-[#333333]">
           請選擇商品選項
         </h1>
@@ -11,13 +17,13 @@ function AlertPopup() {
         </p>
         <button
           className="rounded-[5px] width-[260px] h-[40px] bg-[#ff5353] text-[#ffffff] text-center mx-[15px]"
-          onClick={() => console.log('click')}
+          onClick={close}
         >
           確認
         </button>
       </div>
-    </>
-  );
+    </div>
+  ) : null;
 }
 
 export default AlertPopup;

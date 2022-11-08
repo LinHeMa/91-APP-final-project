@@ -11,7 +11,7 @@ const isUserValid = (data: any) => {
 };
 const isProductValid = (data: any) => {
   const { model, memory, color } = data;
-  if (_.isEmpty(model) || _.isEmpty(_.toString(memory)) || _.isEmpty(color)) {
+  if (_.isEmpty(model) || memory === 0 || _.isEmpty(color)) {
     return false;
   }
   return true;
@@ -57,10 +57,10 @@ const isFormDataCompelete = (state: initialStateType) => {
 
 const isProductDataCompelete = (state: initialStateType) => {
   const { model, memory, color } = state;
-  const hasName = !_.isEmpty(model);
-  const hasPhoneNum = memory > 0;
-  const hasEmail = !_.isEmpty(color);
-  return hasName && hasPhoneNum && hasEmail;
+  const hasModel = !_.isEmpty(model);
+  const hasMemory = memory > 0;
+  const hasColor = !_.isEmpty(color);
+  return hasModel && hasMemory && hasColor;
 };
 
 export {

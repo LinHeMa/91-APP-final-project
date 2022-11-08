@@ -1,18 +1,22 @@
 import classNames from 'classnames';
 import _ from 'lodash';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useBoolean } from 'usehooks-ts';
 import { stateType } from '../pages/reservation/ReservationIndex';
 import { isProductValid, isUserValid } from '../util/guard';
+import AlertPopup from './AlertPopup';
 interface ReserveFooterProps {
   state: stateType[];
 }
 const ReserveFooter = ({ state }: ReserveFooterProps) => {
   const pathName = useLocation();
-  const { price, model, memory } = state as unknown as stateType;
+  const { price } = state as unknown as stateType;
   const pathArray = _.split(pathName.pathname, '/');
   const firstPathName = pathArray[1];
   const secondPathName = pathArray[2];
   const navigate = useNavigate();
+  const { setTrue, setFalse, value: isOpen } = useBoolean(false);
+  console.log(state,!isUserValid(state) || !isProductValid(state),!isUserValid(state),!isProductValid(state),)
   const handleClick = (path: string) => {
     switch (path) {
       case 'submitform': {
@@ -22,6 +26,7 @@ const ReserveFooter = ({ state }: ReserveFooterProps) => {
       }
       case 'product': {
         if (!isUserValid(state) || !isProductValid(state)) {
+          setTrue();
           return;
         }
         navigate('/reservation/successpage', { replace: true });
@@ -73,6 +78,7 @@ const ReserveFooter = ({ state }: ReserveFooterProps) => {
 
   return (
     <footer className="flex-col w-[100vw] bg-white flex  justify-center items-center drop-shadow-sm flex-shrink-0">
+      <AlertPopup isOpen={isOpen} close={setFalse} />
       <p
         className={classNames({
           'w-[85%] flex items-center my-[10px] text-[#FF5353] max-w-[1080px]':

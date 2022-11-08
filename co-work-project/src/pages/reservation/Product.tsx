@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import { useEffect } from 'react';
 import { useLocation, useNavigate, useOutletContext } from 'react-router-dom';
+import AlertPopup from '../../components/AlertPopup';
 import ProductPicker from '../../components/ProductPicker';
 import ProductSlider from '../../components/ProductSlider';
 import { singleIphoneImg } from '../../data/carousellImg';
