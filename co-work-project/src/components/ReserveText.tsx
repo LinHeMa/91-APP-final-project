@@ -1,12 +1,12 @@
 function ReserveText() {
   return (
     <div className="max-w-[1080px] mx-[10px] bg-white md:mx-auto  md:px-[20px]">
-      <div className=" h-[580px] mx-auto md:mx-unset w-full md:h-[490px] md:px-6 pt-[40px] md:pt-[20px] max-w-[1080px] ">
-        <div className="h-[571px] md:h-[482px] pl-3 w-full md:pl-0 mx-auto leading-4 md:leading-12">
+      <div className=" h-[580px] mx-auto md:mx-unset w-full md:h-auto md:px-0 pt-[40px] md:py-[20px] max-w-[1080px] ">
+        <div className="h-[571px] md:h-auto pl-[18px] pr-[5px] w-full md:pl-0 mx-auto leading-4 md:leading-12">
           <span className="font-bold  text-[10px]  text-[#666666] md:text-[14px]">
             預約活動說明:
           </span>
-          <ol className="list-decimal text-[10px]  text-[#666666] md:text-[14px]">
+          <ol className="list-decimal text-[10px]  text-[#666666] md:text-[14px] pl-[14px]">
             <li>
               預約登記日期：即日起至
               <p className="text-[#ff5353] mx-[2px] inline">
@@ -44,17 +44,10 @@ function ReserveText() {
               台端依據個資法第三條規定得行使之權利及方式：
               <ol className="list-decimal text-[10px] ml-[12px] md:text-[14px]">
                 <li>
-                  資料使用期間，權利人得隨時向本公司請求查詢、閱覽、製給複製
-                  副本；或補充/更正、請求停止蒐集、處理、利用或刪除其所提供
-                  之個人資料內容一部或全部。
+                  資料使用期間，權利人得隨時向本公司請求查詢、閱覽、製給複製副本；或補充/更正、請求停止蒐集、處理、利用或刪除其所提供之個人資料內容一部或全部。
                 </li>
                 <li>
-                  台端得自由選擇是否提供相關個人資料，惟若拒絕提供相關個人資
-                  料者，將無法參加本活動或視為放棄預約登記資格。經檢舉或本公
-                  司發現不足以確認本活動參與者的身分真實性或其他個人資料冒
-                  用、盜用、資料不實等情形，致本公司無法進行必要之確認作業，
-                  本公司有暫停停止提供本活動相關服務並取消預約登記資格，如有
-                  不便之處敬請見諒。
+                  台端得自由選擇是否提供相關個人資料，惟若拒絕提供相關個人資料者，將無法參加本活動或視為放棄預約登記資格。經檢舉或本公司發現不足以確認本活動參與者的身分真實性或其他個人資料冒用、盜用、資料不實等情形，致本公司無法進行必要之確認作業，本公司有暫停停止提供本活動相關服務並取消預約登記資格，如有不便之處敬請見諒。
                 </li>
               </ol>
             </li>

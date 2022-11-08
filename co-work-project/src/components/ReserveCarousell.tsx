@@ -89,7 +89,12 @@ const ReserveCarousell = ({
     }, 3000);
   }, [timerRef]);
   const selectPhotoIndex = (index: number) => {
+    if (videoElement.current) {
+      const video = videoElement.current as unknown as HTMLVideoElement;
+      video.pause();
+    }
     setPhotoIndex(index);
+    setIsPlaying(false);
   };
   useEffect(() => {
     //  TODO change trace to useref
@@ -157,7 +162,13 @@ const ReserveCarousell = ({
           </span>
         )}
 
-        <div className=" absolute bg-[#fafafa] w-full h-full top-0 left-0 z-10" />
+        <div
+          className={classNames({
+            'absolute  w-full h-full top-0 left-0 z-10': true,
+            'bg-[#fafafa]': currentPage === 'reservation',
+            'bg-white': currentPage === 'product',
+          })}
+        />
         {photoArr.map((photo, index) => (
           <div
             key={_.toString(index)}
@@ -203,7 +214,7 @@ const ReserveCarousell = ({
         ))}
         <span
           className={`absolute ${directionIconTop} ${
-            currentPage === 'product' ? 'right-2' : 'right-7'
+            currentPage === 'product' ? 'right-2' : 'right-1'
           } z-50`}
         >
           <ChooseButton
@@ -217,7 +228,7 @@ const ReserveCarousell = ({
         </span>
         <span
           className={`absolute ${directionIconTop} ${
-            currentPage === 'product' ? 'left-2' : 'left-0'
+            currentPage === 'product' ? 'left-2' : 'left-1'
           } z-50`}
         >
           <ChooseButton

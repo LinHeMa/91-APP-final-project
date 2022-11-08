@@ -21,10 +21,14 @@ const ProductSlider = () => {
     return times + remainder;
   };
   return (
-    <div className="w-[375px] md:w-[426px] relative productPage:pb-[98px] mx-[20px]">
-      <img src={state.img || state.prevImg} alt="iphone" className="w-full" />
+    <div className="w-[375px] md:w-[426px]  relative md:pb-[98px] mx-[20px]">
+      <img
+        src={state.img || state.prevImg}
+        alt="iphone"
+        className="w-full h-[375px] md:h-[426px] bg-[#f2f2f2]"
+      />
       <div
-        className="cursor-pointer absolute bottom-[40px] -left-[17.57px]  hidden productPage:block"
+        className="cursor-pointer absolute bottom-[30px] -left-[30.57px]   hidden md:block"
         onClick={() => {
           if (maxindex === 0) return;
           setMaxindex((pre) => pre - 1);
@@ -32,14 +36,14 @@ const ProductSlider = () => {
       >
         <img src={leftArrow} alt="往左" />
       </div>
-      <div className="max-w-[427px] w-[360px] h-[83.6px] overflow-hidden absolute hidden productPage:flex left-10 ">
+      <div className="max-w-[427px] w-[426px] h-[95.6px] overflow-hidden absolute hidden md:flex left-0 ">
         {singleIphoneImg.map((photo, index) => (
           <img
             src={photo.img}
             key={photo.img}
-            style={{ left: `${70.2 * (index - maxindex)}px` }}
+            style={{ left: `${86 * (index - maxindex)}px` }}
             className={classNames({
-              'max-h-[83px] w-auto duration-300 transition-all cursor-pointer':
+              'max-h-[83px] w-[83px] w-auto duration-300 transition-all cursor-pointer bg-[#f2f2f2] mt-3':
                 true,
               absolute: true,
             })}
@@ -62,7 +66,7 @@ const ProductSlider = () => {
         ))}
       </div>
       <div
-        className="cursor-pointer absolute bottom-[45px] -right-[17.57px]  hidden productPage:block"
+        className="cursor-pointer absolute bottom-[30px] -right-[30.57px]  hidden md:block"
         onClick={() => {
           if (maxindex >= clickLimit(singleIphoneImg)) return;
           setMaxindex((pre) => pre + 1);
