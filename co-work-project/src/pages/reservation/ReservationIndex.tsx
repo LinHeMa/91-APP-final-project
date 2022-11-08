@@ -78,6 +78,7 @@ function reducer(state: stateType[], action: chooseAction) {
     case chooseActionKind.CHANGE_COLOR:
       return {
         ...state,
+        memory: 0,
         color: payload,
       };
     case chooseActionKind.CHANGE_COLORNAME:
