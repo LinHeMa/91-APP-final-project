@@ -24,7 +24,7 @@ module.exports = {
       popup: '0 2px 5px rgba(0, 0, 0, 0.25)',
     },
     extend: {
-      animation: { spin: 'spin 0.1s linear infinite' },
+      animation: { spin: 'spin 3s linear infinite' },
     },
   },
 
