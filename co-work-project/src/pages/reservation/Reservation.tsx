@@ -2,7 +2,6 @@ import ReserveCarousell from '../../components/ReserveCarousell';
 import ReserveText from '../../components/ReserveText';
 import flowImg from '../../assets/reserve/flow.png';
 import carousellImg from '../../data/carousellImg';
-import AlertPopup from '../../components/AlertPopup';
 
 const Reservation = () => {
   return (
@@ -37,7 +36,6 @@ const Reservation = () => {
             photoHeight="h-[424px]"
           />
         </div>
-        <AlertPopup />
       </div>
       <ReserveText />
     </div>
