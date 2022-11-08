@@ -17,22 +17,22 @@ const ReserveFooter = ({ state }: ReserveFooterProps) => {
     switch (path) {
       case 'submitform': {
         if (!isUserValid(state)) return;
-        navigate('/reservation/product');
+        navigate('/reservation/product', { replace: true });
         break;
       }
       case 'product': {
         if (!isUserValid(state) || !isProductValid(state)) {
           return;
         }
-        navigate('/reservation/successpage');
+        navigate('/reservation/successpage', { replace: true });
         break;
       }
       case 'successpage': {
-        navigate('/reservation');
+        navigate('/reservation', { replace: true });
         break;
       }
       default: {
-        navigate('/reservation/submitform');
+        navigate('/reservation/submitform', { replace: true });
         break;
       }
     }
@@ -55,7 +55,6 @@ const ReserveFooter = ({ state }: ReserveFooterProps) => {
   };
 
   const footerButtonText = (path: string) => {
-
     switch (path) {
       case 'submitform': {
         return '選擇商品';

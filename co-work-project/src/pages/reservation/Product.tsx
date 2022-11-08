@@ -1,18 +1,23 @@
 import _ from 'lodash';
 import { useEffect } from 'react';
-import { useLocation, useOutletContext } from 'react-router-dom';
+import { useLocation, useNavigate, useOutletContext } from 'react-router-dom';
 import ProductPicker from '../../components/ProductPicker';
 import ProductSlider from '../../components/ProductSlider';
 import { singleIphoneImg } from '../../data/carousellImg';
+import { isFormDataCompelete } from '../../util/guard';
 import { chooseActionKind, ContextType } from './ReservationIndex';
 
 const Product = () => {
   const { state, dispatch, iphoneData } = useOutletContext<ContextType>();
   const { state: formState } = useLocation();
+  const navigate = useNavigate();
   const chooseImg = _.filter(
     singleIphoneImg,
     (item) => _.includes(item.iphone, state.model) && item.color === state.color
   )[0]?.img;
+  useEffect(() => {
+    if (!isFormDataCompelete(state)) navigate('/reservation');
+  });
   useEffect(() => {
     if (chooseImg)
       dispatch({

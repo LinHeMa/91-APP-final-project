@@ -1,7 +1,9 @@
 import _ from 'lodash';
-import { useOutletContext } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useNavigate, useOutletContext } from 'react-router-dom';
 import heartImg from '../../assets/reserve/img_heart.png';
 import ReserveText from '../../components/ReserveText';
+import { isFormDataCompelete, isProductDataCompelete } from '../../util/guard';
 import { ContextType } from './ReservationIndex';
 
 const SuccessPage = () => {
@@ -9,6 +11,11 @@ const SuccessPage = () => {
   const price = _.filter(iphoneData, (item) => {
     return item.model === state.model && item.memory === state.memory;
   })[0].price;
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!isFormDataCompelete(state) || !isProductDataCompelete(state))
+      navigate('/reservation');
+  });
   return (
     <div className="flex flex-col justify-center items-center ">
       <h1 className="w-[300px] h-[40px] text-[24px] font-bold  mt-[30px] flex justify-center items-center mb-[2px] md:text-[64px] md:w-[713px] md:h-[80px]">

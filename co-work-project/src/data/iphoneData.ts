@@ -14,7 +14,7 @@ interface variation {
   img: string;
 }
 
-interface iphone {
+export interface iphone {
   model: string;
   memory: number;
   price: number;
@@ -30,7 +30,7 @@ const data: iphone[] = [
       {
         color: '#fae1dc',
         colorName: '粉紅色',
-        qty: 5,
+        qty: 0,
         img: iphone_pink,
       },
       {
