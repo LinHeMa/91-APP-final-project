@@ -4,6 +4,7 @@ import { data as iphoneData } from '../../data/iphoneData';
 import ReserveFooter from '../../components/ReserveFooter';
 import ReserveHeader from '../../components/ReserveHeader';
 import iphone_blue from '../../assets/reserve/iphone-13-blue-select-2021.png';
+import _ from 'lodash';
 export enum chooseActionKind {
   CHANGE_MODEL = 'CHANGE_MODEL',
   CHANGE_MEMORY = 'CHANGE_MEMORY',
@@ -65,16 +66,19 @@ export interface ContextType {
 function reducer(state: stateType[], action: chooseAction) {
   const { type, payload } = action;
   switch (type) {
-    case chooseActionKind.CHANGE_MODEL:
+    case chooseActionKind.CHANGE_MODEL: {
+      const colorArray = _.filter(iphoneData, (item) => item.model === payload);
+      console.log(colorArray,colorArray[0].variation[0].color);
       return {
         ...state,
         model: payload,
         memory: 0,
         price: 0,
-        color: '',
-        colorName: '',
+        color: colorArray[0].variation[0].color,
+        colorName: colorArray[0].variation[0].colorName,
         qty: 0,
       };
+    }
     case chooseActionKind.CHANGE_COLOR:
       return {
         ...state,
@@ -131,7 +135,7 @@ const ReservationIndex = () => {
         <ReserveHeader />
         <Outlet context={{ state, dispatch, iphoneData }} />
       </div>
-      <div className="fixed bottom-0 left-0 right-0" style={{'zIndex':99}}>
+      <div className="fixed bottom-0 left-0 right-0" style={{ zIndex: 99 }}>
         <ReserveFooter state={state} />
       </div>
     </div>

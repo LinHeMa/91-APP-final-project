@@ -10,7 +10,6 @@ import { chooseActionKind, ContextType } from './ReservationIndex';
 
 const Product = () => {
   const { state, dispatch, iphoneData } = useOutletContext<ContextType>();
-  const { state: formState } = useLocation();
   const navigate = useNavigate();
   const chooseImg = _.filter(
     singleIphoneImg,
@@ -31,7 +30,7 @@ const Product = () => {
   }, []);
 
   return (
-    <div className="md:bg-[#f2f2f2] md:pb-[122px]">
+    <div className="md:bg-[#f2f2f2] md:pb-[122px] h-full">
       <h1 className="hidden md:block font-medium text-[64px] leading-80 text-center pt-[53px] mb-[43px]">
         選擇商品
       </h1>

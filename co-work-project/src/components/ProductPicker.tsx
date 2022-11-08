@@ -8,7 +8,7 @@ import {
   ContextType,
   stateType,
 } from '../pages/reservation/ReservationIndex';
-import { isMemoryAvailable } from '../util/guard';
+import { isColorAvailable, isMemoryAvailable } from '../util/guard';
 import ModelLabel from './ModelLabel';
 
 const ProductPicker = () => {
@@ -25,7 +25,7 @@ const ProductPicker = () => {
   const price = _.filter(iphoneData, (item) => {
     return item.model === state.model && item.memory === state.memory;
   })[0]?.price;
-console.log(state)
+  console.log(state);
   useEffect(() => {
     if (!price || price === 0) return;
     dispatch({ type: chooseActionKind.CHANGE_PRICE, payload: price });
@@ -69,6 +69,11 @@ console.log(state)
               key={index}
               className="mr-[10px] mb-[10px]"
               onClick={() => {
+                if (
+                  state.memory > 0 &&
+                  !isColorAvailable(state.model, state.memory, color, data)
+                )
+                  return;
                 dispatch({
                   type: chooseActionKind.CHANGE_COLORNAME,
                   payload: colorName,
@@ -108,7 +113,11 @@ console.log(state)
                 });
               }}
             >
-              <ModelLabel name={_.toString(memory) + 'GB'} key={memory} memory={memory}/>
+              <ModelLabel
+                name={_.toString(memory) + 'GB'}
+                key={memory}
+                memory={memory}
+              />
             </span>
           );
         })}
