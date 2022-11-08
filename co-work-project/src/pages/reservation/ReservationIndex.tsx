@@ -131,7 +131,7 @@ const ReservationIndex = () => {
         <ReserveHeader />
         <Outlet context={{ state, dispatch, iphoneData }} />
       </div>
-      <div className=" flex-shrink-0">
+      <div className="fixed bottom-0 left-0 right-0" style={{'zIndex':99}}>
         <ReserveFooter state={state} />
       </div>
     </div>

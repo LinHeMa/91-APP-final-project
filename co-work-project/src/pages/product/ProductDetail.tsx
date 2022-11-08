@@ -36,8 +36,8 @@ const ProductDetail = () => {
                 <div className="w-[528px] h-[703px]">
                   <ReserveCarousell
                     photoArr={productImgArr}
-                    leftPosition="-left-[528px]"
-                    rightPosition="left-[528px]"
+                    leftPosition="-left-[600px]"
+                    rightPosition="left-[600px]"
                     currentPage="product"
                     directionIconWidth="w-[24px]"
                     directionIconHeight="h-[24px]"

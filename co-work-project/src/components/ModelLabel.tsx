@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import _ from 'lodash';
 import { useOutletContext } from 'react-router-dom';
 import { ContextType } from '../pages/reservation/ReservationIndex';
-import { isColorAvailable, isMemoryAvailable } from '../util/guard';
+import { isMemoryAvailable } from '../util/guard';
 import { data } from '../data/iphoneData';
 interface ModelLabelProps {
   name: string;
