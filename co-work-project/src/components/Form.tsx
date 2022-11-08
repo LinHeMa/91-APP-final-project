@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { useForm } from 'react-hook-form';
 import { useNavigate, useOutletContext } from 'react-router-dom';
 import {
@@ -27,10 +28,8 @@ const Form = () => {
       type: chooseActionKind.CHANGE_USER_PHONE_NUM,
       payload: phoneNum,
     });
-    console.log(state);
     navigate('/reservation/product', { state: { ...state } });
   };
-  console.log(errors);
 
   return (
     <div className="bg-white mx-auto  w-full md:border md:border-solid max-w-[1080px] md:border-[#DDDDDD] flex items-center justify-center">
@@ -43,7 +42,11 @@ const Form = () => {
           <span className="text-red-500">*</span>姓名
         </div>
         <input
-          className="w-full border h-[40px] border-solid border-[#DDDDDD] rounded-[5px] py-[9.5px] px-[10px] text-[14px] mt-[10px]"
+          className={classNames({
+            'w-full border h-[40px] border-solid  border-[#DDDDDD] rounded-[5px] py-[9.5px] px-[10px] text-[14px] mt-[10px]':
+              true,
+            'border-[#ff5353]': errors.請輸入姓名 !== undefined,
+          })}
           placeholder="輸入名字"
           {...register('請輸入姓名', {
             required: true,
@@ -52,39 +55,76 @@ const Form = () => {
             pattern: /[\u4E00-\u9FA5]/i,
           })}
         />
+        <p
+          className={classNames({
+            'text-[13px] text-[#ff5353] mt-1': true,
+            hidden: errors.請輸入姓名 === undefined,
+          })}
+        >
+          請輸入中文姓名，限制2~7個字
+        </p>
         <div className="mt-[15px]">
           <span className="text-red-500">*</span>手機號碼（須通過簡訊驗證）
         </div>
-        <div className="flex items-center justify-center">
+        <div className="flex  justify-center">
           <select className="w-[116px] h-[40px] text-[#999999] border mr-[5px] bg-[#F4F4F4] border-solid border-[#DDDDDD] rounded-[5px] py-[7px] px-[11px] text-[14px] mt-[10px]">
             <option>+886</option>
           </select>
-          <input
-            className="w-full border h-[40px] border-solid border-[#DDDDDD] rounded-[5px] py-[9.5px] px-[10px] text-[14px] mt-[10px]"
-            placeholder="輸入手機號碼"
-            maxLength={9}
-            {...register('手機號碼', {
-              required: true,
-              maxLength: 9,
-              minLength: 9,
-              pattern: /^9[0-9]{8}$/i,
-            })}
-          />
+          <div>
+            <input
+              className={classNames({
+                'w-full border h-[40px] border-solid  border-[#DDDDDD] rounded-[5px] py-[9.5px] px-[10px] text-[14px] mt-[10px]':
+                  true,
+                'border-[#ff5353]': errors.手機號碼 !== undefined,
+              })}
+              placeholder="輸入手機號碼"
+              maxLength={9}
+              {...register('手機號碼', {
+                required: true,
+                maxLength: 9,
+                minLength: 9,
+                pattern: /^9[0-9]{8}$/i,
+              })}
+            />
+            <p
+              className={classNames({
+                'text-[13px] text-[#ff5353] mt-1': true,
+                hidden: errors.手機號碼 === undefined,
+              })}
+            >
+              手機號碼格式錯誤，請重新輸入
+            </p>
+          </div>
         </div>
         <div className="mt-[15px]">
           <span className=" text-red-500">*</span>
           Email信箱（開賣時用此email通知）
         </div>
         <input
-          className="w-full border border-solid h-[40px] border-[#DDDDDD] rounded-[5px] py-[9.5px] px-[10px] text-[14px] mt-[10px]"
+          className={classNames({
+            'w-full border h-[40px] border-solid  border-[#DDDDDD] rounded-[5px] py-[9.5px] px-[10px] text-[14px] mt-[10px]':
+              true,
+            'border-[#ff5353]': errors.輸入Email !== undefined,
+          })}
           placeholder="輸入Email"
           {...register('輸入Email', { required: true, pattern: /^\S+@\S+$/i })}
         />
+        <p
+          className={classNames({
+            'text-[13px] text-[#ff5353] mt-1': true,
+            hidden: errors.輸入Email === undefined,
+          })}
+        >
+          Email 格式錯誤，請重新輸入
+        </p>
         <div className="flex items-center mt-[15px]">
           <input
             type="checkbox"
             {...register('同意', { required: true })}
-            className="mr-[6px] border-[1px] border-[#BBBBBB] rounded-[3px]"
+            className={classNames({
+              'mr-[6px] border-[1px] border-[#BBBBBB] rounded-[3px]': true,
+              'border-[#ff5353]': errors.同意 !== undefined,
+            })}
           />
           <p>
             我已閱讀並同意

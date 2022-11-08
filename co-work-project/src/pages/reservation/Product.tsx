@@ -26,10 +26,10 @@ const Product = () => {
         選擇商品
       </h1>
       <div className="flex flex-col md:flex-row  pb-2  justify-between md:items-start  productPage:mx-auto md:bg-[#ffffff] max-w-[1080px]">
-        <div className="mx-auto  md:ml-[83.13px]">
+        <div className="mx-auto  md:ml-[83.13px] ">
           <ProductSlider />
         </div>
-        <div className="md:mr-[109px] md:mt-[87px] mx-auto">
+        <div className=" md:mt-[87px] mx-auto md:ml-0">
           <ProductPicker />
         </div>
       </div>

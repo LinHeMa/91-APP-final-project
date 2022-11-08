@@ -10,7 +10,6 @@ const isUserValid = (data: any) => {
 const isProductValid = (data: any) => {
   const { model, memory, color } = data;
   if (_.isEmpty(model) || _.isEmpty(_.toString(memory)) || _.isEmpty(color)) {
-    console.log(model, memory, color);
     return false;
   }
   return true;
