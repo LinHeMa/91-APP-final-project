@@ -301,7 +301,7 @@ const data: iphone[] = [
       {
         color: '#5a5955',
         colorName: '石墨色',
-        qty: 5,
+        qty: 0,
         img: iphone_max_graphite,
       },
     ],
@@ -413,7 +413,7 @@ const data: iphone[] = [
       {
         color: '#f1f2ed',
         colorName: '銀色',
-        qty: 5,
+        qty: 0,
         img: iphone_max_silver,
       },
       {

@@ -34,7 +34,7 @@ const ProductPicker = () => {
     <div className="w-full md:max-w-[376px]  md:pr-2">
       <h1 className="text-[16px] leading-[23px]">APPLE {state.model}</h1>
       <h2 className="text-[#FF5353] text-[20px] leading-[29px] mt-[19px]">
-        NT${price || 0}
+        {price > 0 ? 'NT$' + price : '請選擇容量'}
       </h2>
       <p className="text-[#FF5353] text-[14px]">
         登記的手機號碼需與會員手機號碼相同，每人限購一支
@@ -97,8 +97,6 @@ const ProductPicker = () => {
               key={index}
               className={classNames({
                 'mr-[10px] mb-[10px]': true,
-                // 'cursor-not-allowed bg-[#D4D9DE]':
-                //   !isMemoryAvailable(state.model, memory, state.color, data),
               })}
               onClick={() => {
                 console.log(state.model, memory, state.color, data, 'yes');

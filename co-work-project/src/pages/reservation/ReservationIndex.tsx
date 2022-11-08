@@ -49,14 +49,14 @@ const initialState: initialStateType = {
   userName: '',
   userPhoneNum: '',
   userEmail: '',
-  model: 'iPhone 13 Mini',
-  memory: 128,
-  price: 22900,
-  color: '#447792',
-  colorName: '藍色',
-  qty: 5,
-  img: iphone_blue,
-  prevImg: iphone_blue,
+  model: iphoneData[0].model,
+  memory: iphoneData[0].memory,
+  price: iphoneData[0].price,
+  color: _.find(iphoneData[0].variation, (o) => o.qty > 0)?.color!,
+  colorName: _.find(iphoneData[0].variation, (o) => o.qty > 0)?.colorName!,
+  qty: 0,
+  img: _.find(iphoneData[0].variation, (o) => o.qty > 0)?.img!,
+  prevImg: _.find(iphoneData[0].variation, (o) => o.qty > 0)?.img!,
 };
 export interface ContextType {
   state: initialStateType;
@@ -68,7 +68,7 @@ function reducer(state: stateType[], action: chooseAction) {
   switch (type) {
     case chooseActionKind.CHANGE_MODEL: {
       const colorArray = _.filter(iphoneData, (item) => item.model === payload);
-      console.log(colorArray,colorArray[0].variation[0].color);
+      console.log(colorArray, colorArray[0].variation[0].color);
       return {
         ...state,
         model: payload,
