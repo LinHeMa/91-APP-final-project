@@ -1,11 +1,14 @@
+import classNames from 'classnames';
 import _ from 'lodash';
 import { useEffect } from 'react';
 import { useOutletContext } from 'react-router-dom';
+import { data } from '../data/iphoneData';
 import {
   chooseActionKind,
   ContextType,
   stateType,
 } from '../pages/reservation/ReservationIndex';
+import { isMemoryAvailable } from '../util/guard';
 import ModelLabel from './ModelLabel';
 
 const ProductPicker = () => {
@@ -22,7 +25,7 @@ const ProductPicker = () => {
   const price = _.filter(iphoneData, (item) => {
     return item.model === state.model && item.memory === state.memory;
   })[0]?.price;
-
+console.log(state)
   useEffect(() => {
     if (!price || price === 0) return;
     dispatch({ type: chooseActionKind.CHANGE_PRICE, payload: price });
@@ -87,15 +90,25 @@ const ProductPicker = () => {
           return (
             <span
               key={index}
-              className="mr-[10px] mb-[10px]"
+              className={classNames({
+                'mr-[10px] mb-[10px]': true,
+                // 'cursor-not-allowed bg-[#D4D9DE]':
+                //   !isMemoryAvailable(state.model, memory, state.color, data),
+              })}
               onClick={() => {
+                console.log(state.model, memory, state.color, data, 'yes');
+                if (
+                  !isMemoryAvailable(state.model, memory, state.color, data)
+                ) {
+                  return;
+                }
                 dispatch({
                   type: chooseActionKind.CHANGE_MEMORY,
                   payload: memory,
                 });
               }}
             >
-              <ModelLabel name={_.toString(memory) + 'GB'} key={memory} />
+              <ModelLabel name={_.toString(memory) + 'GB'} key={memory} memory={memory}/>
             </span>
           );
         })}
