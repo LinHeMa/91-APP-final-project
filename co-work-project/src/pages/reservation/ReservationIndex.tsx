@@ -1,16 +1,9 @@
 import { useReducer } from 'react';
 import { Outlet } from 'react-router-dom';
-import { data, data as iphoneData } from '../../data/iphoneData';
+import { data as iphoneData } from '../../data/iphoneData';
 import ReserveFooter from '../../components/ReserveFooter';
 import ReserveHeader from '../../components/ReserveHeader';
-import _ from 'lodash';
 import iphone_blue from '../../assets/reserve/iphone-13-blue-select-2021.png';
-import {
-  isColorAvailable,
-  isFormDataCompelete,
-  isMemoryAvailable,
-  isProductDataCompelete,
-} from '../../util/guard';
 export enum chooseActionKind {
   CHANGE_MODEL = 'CHANGE_MODEL',
   CHANGE_MEMORY = 'CHANGE_MEMORY',
