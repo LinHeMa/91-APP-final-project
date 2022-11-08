@@ -32,7 +32,7 @@ const Product = () => {
         選擇商品
       </h1>
       <div className="flex flex-col md:flex-row pb-2 px-2  md:items-start productPage:mx-auto md:bg-[#ffffff] max-w-[1080px]">
-        <div className="mx-auto md:ml-[5%] md:mr-[5%] md:mr-0 md:mt-[72px] md:mb-[70px]">
+        <div className="mx-auto md:ml-[5%] md:mr-[5%]  md:mt-[72px] md:mb-[70px]">
           <ProductSlider />
         </div>
         <div className=" md:mt-[87px] px-4 md:pr-0  md:pl-2">
