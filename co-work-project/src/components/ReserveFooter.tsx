@@ -16,7 +16,12 @@ const ReserveFooter = ({ state }: ReserveFooterProps) => {
   const secondPathName = pathArray[2];
   const navigate = useNavigate();
   const { setTrue, setFalse, value: isOpen } = useBoolean(false);
-  console.log(state,!isUserValid(state) || !isProductValid(state),!isUserValid(state),!isProductValid(state),)
+  console.log(
+    state,
+    !isUserValid(state) || !isProductValid(state),
+    !isUserValid(state),
+    !isProductValid(state)
+  );
   const handleClick = (path: string) => {
     switch (path) {
       case 'submitform': {
@@ -77,7 +82,7 @@ const ReserveFooter = ({ state }: ReserveFooterProps) => {
   };
 
   return (
-    <footer className="flex-col w-[100vw] bg-white flex  justify-center items-center drop-shadow-sm flex-shrink-0">
+    <footer className="flex-col  bg-white flex  justify-center items-center drop-shadow-sm flex-shrink-0">
       <AlertPopup isOpen={isOpen} close={setFalse} />
       <p
         className={classNames({
