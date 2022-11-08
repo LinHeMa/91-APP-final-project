@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import _ from 'lodash';
 import { useOutletContext } from 'react-router-dom';
 import { ContextType } from '../pages/reservation/ReservationIndex';
-import { isMemoryAvailable } from '../util/guard';
+import { isColorAvailable, isMemoryAvailable } from '../util/guard';
 import { data } from '../data/iphoneData';
 interface ModelLabelProps {
   name: string;
@@ -26,8 +26,9 @@ const ModelLabel = ({ name, color, memory }: ModelLabelProps) => {
             name === state.colorName ||
             name === _.toString(state.memory) + 'GB') &&
           canMemoryBeChoose(memory!),
-        'cursor-not-allowed bg-[#D4D9DE] opacity-50':
-          memory && !isMemoryAvailable(state.model, memory!, state.color, data),
+        'cursor-not-allowed bg-[#D4D9DE] opacity-50': !canMemoryBeChoose(
+          memory!
+        ),
       })}
     >
       <h1
