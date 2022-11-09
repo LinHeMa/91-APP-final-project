@@ -6,9 +6,11 @@ import Label from './Label';
 import { useMediaQuery } from 'usehooks-ts';
 import _ from 'lodash';
 import useVideoPlayer from '../hooks/useVideoPlayer';
+import { carousellImgType } from '../data/carousellImg';
 
 interface ReserveCarousellProps {
   photoArr: string[];
+  photoArr2?: carousellImgType[];
   leftPosition: string;
   rightPosition: string;
   currentPage: string;
@@ -24,6 +26,7 @@ interface touchEventTypes {
 
 const ReserveCarousell = ({
   photoArr,
+  photoArr2,
   leftPosition,
   rightPosition,
   currentPage,
@@ -87,6 +90,7 @@ const ReserveCarousell = ({
       });
     }, 3000);
   }, 500);
+
   const selectPhotoIndex = (index: number) => {
     if (videoElement.current) {
       const video = videoElement.current as unknown as HTMLVideoElement;
@@ -199,7 +203,7 @@ const ReserveCarousell = ({
                 src={photo}
                 alt="iphone照片"
                 draggable={false}
-                className={'w-full'}
+                className={'w-full h-auto'}
               />
             )}
 
