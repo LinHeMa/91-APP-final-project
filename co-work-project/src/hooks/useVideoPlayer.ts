@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react';
 
 export default function useVideoPlayer(
-  videoElement: React.MutableRefObject<HTMLVideoElement | null>,
-  isVideoShowing: boolean
+  videoElement: React.MutableRefObject<HTMLVideoElement | null>
 ) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [isMuted, setIsMuted] = useState(false);
-
+  console.log(isPlaying,progress,isMuted)
   function togglePlay() {
     setIsPlaying(!isPlaying);
   }
@@ -51,6 +50,9 @@ export default function useVideoPlayer(
       togglePlay();
     }
   }, [progress]);
+  useEffect(() => {
+    togglePlay();
+  }, [videoElement]);
   return {
     isPlaying,
     progress,

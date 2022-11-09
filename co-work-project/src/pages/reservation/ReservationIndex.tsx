@@ -4,6 +4,7 @@ import { data as iphoneData } from '../../data/iphoneData';
 import ReserveFooter from '../../components/ReserveFooter';
 import ReserveHeader from '../../components/ReserveHeader';
 import iphone_blue from '../../assets/reserve/iphone-13-blue-select-2021.png';
+import _ from 'lodash';
 export enum chooseActionKind {
   CHANGE_MODEL = 'CHANGE_MODEL',
   CHANGE_MEMORY = 'CHANGE_MEMORY',
@@ -48,14 +49,14 @@ const initialState: initialStateType = {
   userName: '',
   userPhoneNum: '',
   userEmail: '',
-  model: 'iPhone 13 Mini',
-  memory: 128,
-  price: 22900,
-  color: '#447792',
-  colorName: '藍色',
-  qty: 5,
-  img: iphone_blue,
-  prevImg: iphone_blue,
+  model: iphoneData[0].model,
+  memory: iphoneData[0].memory,
+  price: iphoneData[0].price,
+  color: _.find(iphoneData[0].variation, (o) => o.qty > 0)?.color!,
+  colorName: _.find(iphoneData[0].variation, (o) => o.qty > 0)?.colorName!,
+  qty: 0,
+  img: _.find(iphoneData[0].variation, (o) => o.qty > 0)?.img!,
+  prevImg: _.find(iphoneData[0].variation, (o) => o.qty > 0)?.img!,
 };
 export interface ContextType {
   state: initialStateType;
@@ -65,16 +66,19 @@ export interface ContextType {
 function reducer(state: stateType[], action: chooseAction) {
   const { type, payload } = action;
   switch (type) {
-    case chooseActionKind.CHANGE_MODEL:
+    case chooseActionKind.CHANGE_MODEL: {
+      const colorArray = _.filter(iphoneData, (item) => item.model === payload);
+      console.log(colorArray, colorArray[0].variation[0].color);
       return {
         ...state,
         model: payload,
         memory: 0,
         price: 0,
-        color: '',
-        colorName: '',
+        color: colorArray[0].variation[0].color,
+        colorName: colorArray[0].variation[0].colorName,
         qty: 0,
       };
+    }
     case chooseActionKind.CHANGE_COLOR:
       return {
         ...state,
@@ -131,7 +135,7 @@ const ReservationIndex = () => {
         <ReserveHeader />
         <Outlet context={{ state, dispatch, iphoneData }} />
       </div>
-      <div className=" flex-shrink-0">
+      <div className="fixed bottom-0 left-0 right-0" style={{ zIndex: 99 }}>
         <ReserveFooter state={state} />
       </div>
     </div>

@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import _ from 'lodash';
 import { useOutletContext } from 'react-router-dom';
-import carousellImg, { singleIphoneImg } from '../data/carousellImg';
+import { singleIphoneImg } from '../data/carousellImg';
 import {
   chooseActionKind,
   ContextType,
@@ -21,12 +21,10 @@ const ProductSlider = () => {
     return times + remainder;
   };
   return (
-    <div className="w-[375px] md:w-[426px]  relative md:pb-[98px] mx-[20px]">
-      <img
-        src={state.img || state.prevImg}
-        alt="iphone"
-        className="w-full h-[375px] md:h-[426px] bg-[#f2f2f2]"
-      />
+    <div className="flex md:block  w-full md:w-[426px]  relative md:pb-[98px] md:mx-[20px] mb-4">
+      <div className=" flex justify-center mx-auto w-full md:h-[426px] bg-[#f2f2f2]">
+        <img src={state.img || state.prevImg} alt="iphone" className=' max-w-[360px]'/>
+      </div>
       <div
         className="cursor-pointer absolute bottom-[30px] -left-[30.57px]   hidden md:block"
         onClick={() => {
@@ -43,7 +41,7 @@ const ProductSlider = () => {
             key={photo.img}
             style={{ left: `${86 * (index - maxindex)}px` }}
             className={classNames({
-              'max-h-[83px] w-[83px] w-auto duration-300 transition-all cursor-pointer bg-[#f2f2f2] mt-3':
+              'max-h-[83px] w-[83px] duration-300 transition-all cursor-pointer bg-[#f2f2f2] mt-3':
                 true,
               absolute: true,
             })}

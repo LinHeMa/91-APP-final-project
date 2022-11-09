@@ -15,6 +15,12 @@ const ModelLabel = ({ name, color, memory }: ModelLabelProps) => {
     if (!memory) return true;
     return isMemoryAvailable(state.model, memory!, state.color, data);
   };
+  const canColorBeChoose = (name: string) => {
+    if (state.model && state.memory > 0 && name) {
+      return !isColorAvailable(state.model, state.memory, name, data);
+    }
+    return false;
+  };
   const { state } = useOutletContext<ContextType>();
   return (
     <div
@@ -22,13 +28,12 @@ const ModelLabel = ({ name, color, memory }: ModelLabelProps) => {
         'border border-solid border-[#D4D9DE] rounded-[3px] w-fit h-[29px] flex px-[12px] py-[5px] justify-center items-center cursor-pointer':
           true,
         'bg-[#FF5353] text-white':
-          (name === state.model ||
-            name === state.colorName ||
-            name === _.toString(state.memory) + 'GB') &&
-          canMemoryBeChoose(memory!),
-        'cursor-not-allowed bg-[#D4D9DE] opacity-50': !canMemoryBeChoose(
-          memory!
-        ),
+          name === state.model ||
+          name === state.colorName ||
+          (name === _.toString(state.memory) + 'GB' &&
+            canMemoryBeChoose(memory!)),
+        'cursor-not-allowed bg-[#D4D9DE] opacity-50':
+          !canMemoryBeChoose(memory!) || canColorBeChoose(color!),
       })}
     >
       <h1

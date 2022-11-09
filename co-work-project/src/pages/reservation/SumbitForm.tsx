@@ -6,7 +6,7 @@ const SumbitForm = () => {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <div className="w-full items-center bg-[#f2f2f2] md:pb-[143px]">
+    <div className="w-full h-full items-center bg-[#f2f2f2] md:pb-[143px]">
       <div className="text-center pt-[30px] pb-[20px] md:pt-[56px] ">
         <h1 className="hidden md:block font-bold text-[24px] leading-40 md:text-[64px] md:leading-80 mb-[66px]">
           iPhone新機搶先登記

@@ -8,7 +8,7 @@ import {
   ContextType,
   stateType,
 } from '../pages/reservation/ReservationIndex';
-import { isMemoryAvailable } from '../util/guard';
+import { isColorAvailable, isMemoryAvailable } from '../util/guard';
 import ModelLabel from './ModelLabel';
 
 const ProductPicker = () => {
@@ -25,7 +25,7 @@ const ProductPicker = () => {
   const price = _.filter(iphoneData, (item) => {
     return item.model === state.model && item.memory === state.memory;
   })[0]?.price;
-console.log(state)
+  console.log(state);
   useEffect(() => {
     if (!price || price === 0) return;
     dispatch({ type: chooseActionKind.CHANGE_PRICE, payload: price });
@@ -34,7 +34,7 @@ console.log(state)
     <div className="w-full md:max-w-[376px]  md:pr-2">
       <h1 className="text-[16px] leading-[23px]">APPLE {state.model}</h1>
       <h2 className="text-[#FF5353] text-[20px] leading-[29px] mt-[19px]">
-        NT${price || 0}
+        {price > 0 ? 'NT$' + price : '請選擇容量'}
       </h2>
       <p className="text-[#FF5353] text-[14px]">
         登記的手機號碼需與會員手機號碼相同，每人限購一支
@@ -69,6 +69,11 @@ console.log(state)
               key={index}
               className="mr-[10px] mb-[10px]"
               onClick={() => {
+                if (
+                  state.memory > 0 &&
+                  !isColorAvailable(state.model, state.memory, color, data)
+                )
+                  return;
                 dispatch({
                   type: chooseActionKind.CHANGE_COLORNAME,
                   payload: colorName,
@@ -92,8 +97,6 @@ console.log(state)
               key={index}
               className={classNames({
                 'mr-[10px] mb-[10px]': true,
-                // 'cursor-not-allowed bg-[#D4D9DE]':
-                //   !isMemoryAvailable(state.model, memory, state.color, data),
               })}
               onClick={() => {
                 console.log(state.model, memory, state.color, data, 'yes');
@@ -108,7 +111,11 @@ console.log(state)
                 });
               }}
             >
-              <ModelLabel name={_.toString(memory) + 'GB'} key={memory} memory={memory}/>
+              <ModelLabel
+                name={_.toString(memory) + 'GB'}
+                key={memory}
+                memory={memory}
+              />
             </span>
           );
         })}

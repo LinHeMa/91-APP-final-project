@@ -6,9 +6,11 @@ import Label from './Label';
 import { useMediaQuery } from 'usehooks-ts';
 import _ from 'lodash';
 import useVideoPlayer from '../hooks/useVideoPlayer';
+import { carousellImgType } from '../data/carousellImg';
 
 interface ReserveCarousellProps {
   photoArr: string[];
+  photoArr2?: carousellImgType[];
   leftPosition: string;
   rightPosition: string;
   currentPage: string;
@@ -24,6 +26,7 @@ interface touchEventTypes {
 
 const ReserveCarousell = ({
   photoArr,
+  photoArr2,
   leftPosition,
   rightPosition,
   currentPage,
@@ -37,7 +40,6 @@ const ReserveCarousell = ({
   const [photoIndex, setPhotoIndex] = useState(0);
   const [onPhoto, setOnPhoto] = useState(false);
   const [isTouching, setIsTouching] = useState(false);
-  const [videoIsShowing, setVideoIsShowing] = useState(false);
   const photoCount = (array: string[]) => array.length - 1;
   const videoElement = useRef(null);
 
@@ -63,7 +65,7 @@ const ReserveCarousell = ({
     handleVideoProgress,
     setIsPlaying,
     toggleMute,
-  } = useVideoPlayer(videoElement, videoIsShowing);
+  } = useVideoPlayer(videoElement);
   const nextPhoto = () => {
     if (photoIndex === photoCount(photoArr)) return setPhotoIndex(0);
     setPhotoIndex((prev) => prev + 1);
@@ -80,14 +82,15 @@ const ReserveCarousell = ({
     if (X - prevX < 0) return nextPhoto();
     if (X - prevX > 0) return prevPhoto();
   };
-  const addTimer = useCallback(() => {
+  const addTimer = _.throttle(() => {
     timerRef.current = setInterval(() => {
       setPhotoIndex((prev) => {
         if (prev === photoCount(photoArr)) return 0;
         return prev + 1;
       });
     }, 3000);
-  }, [timerRef]);
+  }, 500);
+
   const selectPhotoIndex = (index: number) => {
     if (videoElement.current) {
       const video = videoElement.current as unknown as HTMLVideoElement;
@@ -95,6 +98,7 @@ const ReserveCarousell = ({
     }
     setPhotoIndex(index);
     setIsPlaying(false);
+    addTimer();
   };
   useEffect(() => {
     //  TODO change trace to useref
@@ -104,7 +108,7 @@ const ReserveCarousell = ({
     return () => {
       clearInterval(timerRef.current);
     };
-  }, [addTimer, onPhoto, isTouching]);
+  }, [onPhoto, isTouching]);
 
   useEffect(() => {
     if (_.includes(vidRef.current, photoIndex)) {
@@ -119,6 +123,9 @@ const ReserveCarousell = ({
       setProgress(0);
     }
   }, [isPlaying]);
+
+  console.log(timerRef);
+
   return (
     <div
       className="flex flex-col justify-center items-center"
@@ -133,7 +140,6 @@ const ReserveCarousell = ({
       onMouseDown={(e) => {
         if (onMobile) return;
         setMouseDownX(e.pageX);
-        clearInterval(timerRef.current);
       }}
       onMouseUp={(e) => {
         if (onMobile) return;
@@ -172,17 +178,20 @@ const ReserveCarousell = ({
         {photoArr.map((photo, index) => (
           <div
             key={_.toString(index)}
+            // style={{ transition: 'opacity 0.25s ease, position 0.7s linear' }}
             className={classNames({
-              'absolute z-0 min-w-full ': true,
-              [`${leftPosition} duration-700`]: index === photoIndex - 1,
-              [`${leftPosition} duration-700 opacity-0`]:
+              'absolute z-0 min-w-full transition-all': true,
+              [`${leftPosition} duration-700 ease-in-out`]:
+                index === photoIndex - 1,
+              [`${leftPosition} duration-700 opacity-0 ease-in-out`]:
                 index === photoCount(photoArr) &&
                 index !== photoIndex - 1 &&
                 index !== photoIndex &&
                 index !== photoIndex + 1,
-              'left-0 z-40 duration-700': index === photoIndex,
-              [`${rightPosition} duration-700`]: index === photoIndex + 1,
-              [`${rightPosition} duration-700 opacity-0`]:
+              'left-0 z-40 duration-700 ease-in-out': index === photoIndex,
+              [`${rightPosition} duration-700 ease-in-out`]:
+                index === photoIndex + 1,
+              [`${rightPosition} duration-700 opacity-0 ease-in-out`]:
                 index === 0 &&
                 index !== photoIndex - 1 &&
                 index !== photoIndex &&
@@ -194,7 +203,7 @@ const ReserveCarousell = ({
                 src={photo}
                 alt="iphone照片"
                 draggable={false}
-                className={'w-full'}
+                className={'w-full h-auto'}
               />
             )}
 
@@ -207,6 +216,7 @@ const ReserveCarousell = ({
                   ref={photoIndex === index ? videoElement : null}
                   className={`${photoWidth} ${photoHeight}`}
                   controls
+                  muted={true}
                 />
               </div>
             )}

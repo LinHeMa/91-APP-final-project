@@ -66,14 +66,14 @@ const Form = () => {
         <div className="mt-[15px]">
           <span className="text-red-500">*</span>手機號碼（須通過簡訊驗證）
         </div>
-        <div className="flex  justify-center">
+        <div className="flex  justify-between">
           <select className="w-[116px] h-[40px] text-[#999999] border mr-[5px] bg-[#F4F4F4] border-solid border-[#DDDDDD] rounded-[5px] py-[7px] px-[11px] text-[14px] mt-[10px]">
             <option>+886</option>
           </select>
-          <div>
+          <div className='flex grow flex-col'>
             <input
               className={classNames({
-                'w-full border h-[40px] border-solid  border-[#DDDDDD] rounded-[5px] py-[9.5px] px-[10px] text-[14px] mt-[10px]':
+                'grow border h-[40px] border-solid  border-[#DDDDDD] rounded-[5px] py-[9.5px] px-[10px] text-[14px] mt-[10px]':
                   true,
                 'border-[#ff5353]': errors.手機號碼 !== undefined,
               })}
