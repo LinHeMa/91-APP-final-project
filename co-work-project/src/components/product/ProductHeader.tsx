@@ -8,6 +8,8 @@ import shopImg from '../../assets/productImgs/shopIcon.png';
 import downImg from '../../assets/productImgs/Vector.png';
 import { titleData } from '../../data/productData';
 
+import { Link } from 'react-router-dom';
+
 const navList = [phoneImg, profileIcon, shopImg];
 
 function ProductHeader() {
@@ -16,7 +18,9 @@ function ProductHeader() {
       <div className="w-[1180px]  h-[100%] mx-auto flex items-center">
         <div className="h-[100px] flex items-center  mr-[2%] shrink-0 self-start">
           <div className="w-[216.36px] h-[65px] bg-[#ffffff] flex justify-center items-center">
-            <img src={logoImg} alt="logoImage" className="cursor-pointer" />
+            <Link to="/">
+              <img src={logoImg} alt="logoImage" className="cursor-pointer" />
+            </Link>
           </div>
         </div>
         <div className="grow">
