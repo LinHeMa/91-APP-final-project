@@ -2,10 +2,14 @@ import ReserveCarousell from '../../components/ReserveCarousell';
 import ReserveText from '../../components/ReserveText';
 import flowImg from '../../assets/reserve/flow.png';
 import carousellImg, { carousellImgWebp } from '../../data/carousellImg';
+import { useEffect } from 'react';
 
 const Reservation = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
-    <div className=" flex-grow basis-auto flex-shrink-0 bg-[#FAFAFA] md:pb-[150px] pt-[30px] md:pt-[61px]">
+    <div className=" flex-grow basis-auto flex-shrink-0 bg-[#FAFAFA] md:pb-[150px] pt-[30px] md:pt-[61px] pb-[100px]">
       <div className=" md:flex md:flex-row-reverse md:justify-center md:flex-wrap md:ml-[-50px]">
         <div className="md:ml-[29px]">
           <h1 className="font-bold text-[24px] text-center block h-10 md:h-[70px] lg:mt-[83px] md:text-[48px] ">
