@@ -102,11 +102,6 @@ export const titleData = [
     content: [],
   },
   { title: 'Best Sellers', content: [] },
-  { title: 'Best Sellers', content: [] },
-  { title: 'Best Sellers', content: [] },
-  { title: 'Best Sellers', content: [] },
-  { title: 'Best Sellers', content: [] },
-  { title: 'Best Sellers', content: [] },
 ];
 
 export const productLookBook = {
