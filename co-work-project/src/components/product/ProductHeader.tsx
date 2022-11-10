@@ -1,11 +1,11 @@
-import globalImg from '../../assets/productImgs/globeIcon.png';
-import logoImg from '../../assets/productImgs/logo.png';
-import moneyImg from '../../assets/productImgs/moneyIcon.png';
-import phoneImg from '../../assets/productImgs/phoneIcon.png';
-import profileIcon from '../../assets/productImgs/profileIcon.png';
-import searchImg from '../../assets/productImgs/searchIcon.png';
-import shopImg from '../../assets/productImgs/shopIcon.png';
-import downImg from '../../assets/productImgs/Vector.png';
+import globalImg from '../../assets/productImgs/globeIcon.webp';
+import logoImg from '../../assets/productImgs/logo.webp';
+import moneyImg from '../../assets/productImgs/moneyIcon.webp';
+import phoneImg from '../../assets/productImgs/phoneIcon.webp';
+import profileIcon from '../../assets/productImgs/profileIcon.webp';
+import searchImg from '../../assets/productImgs/searchIcon.webp';
+import shopImg from '../../assets/productImgs/shopIcon.webp';
+import downImg from '../../assets/productImgs/Vector.webp';
 import { titleData } from '../../data/productData';
 
 import { Link } from 'react-router-dom';

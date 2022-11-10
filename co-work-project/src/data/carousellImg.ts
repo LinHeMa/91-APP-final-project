@@ -1,23 +1,13 @@
-import iphone_blue from '../assets/reserve/iphone-13-blue-select-2021.png';
-import iphone_midnight from '../assets/reserve/iphone-13-midnight-select-2021.png';
-import iphone_pink from '../assets/reserve/iphone-13-pink-select-2021.png';
-import iphone_max_blue from '../assets/reserve/iphone-13-pro-max-blue-select.png';
-import iphone_max_gold from '../assets/reserve/iphone-13-pro-max-gold-select.png';
-import iphone_max_graphite from '../assets/reserve/iphone-13-pro-max-graphite-select.png';
-import iphone_max_silver from '../assets/reserve/iphone-13-pro-max-silver-select.png';
-import iphone_red from '../assets/reserve/iphone-13-product-red-select-2021.png';
-import iphone_max_starlight from '../assets/reserve/iphone-13-starlight-select-2021.png';
-import iphone13_all_2 from '../assets/reserve/iPhone13全系列圖檔.png';
-import iphone_blue_webp from '../assets/reserve/iphone-13-blue-select-2021.webp';
-import iphone_midnight_webp from '../assets/reserve/iphone-13-midnight-select-2021.webp';
-import iphone_pink_webp from '../assets/reserve/iphone-13-pink-select-2021.webp';
-import iphone_max_blue_webp from '../assets/reserve/iphone-13-pro-max-blue-select.webp';
-import iphone_max_gold_webp from '../assets/reserve/iphone-13-pro-max-gold-select.webp';
-import iphone_max_graphite_webp from '../assets/reserve/iphone-13-pro-max-graphite-select.webp';
-import iphone_max_silver_webp from '../assets/reserve/iphone-13-pro-max-silver-select.webp';
-import iphone_red_webp from '../assets/reserve/iphone-13-product-red-select-2021.webp';
-import iphone_max_starlight_webp from '../assets/reserve/iphone-13-starlight-select-2021.webp';
-import iphone13_all_2_webp from '../assets/reserve/iPhone13全系列圖檔.webp';
+import iphone_blue from '../assets/reserve/iphone-13-blue-select-2021.webp';
+import iphone_midnight from '../assets/reserve/iphone-13-midnight-select-2021.webp';
+import iphone_pink from '../assets/reserve/iphone-13-pink-select-2021.webp';
+import iphone_max_blue from '../assets/reserve/iphone-13-pro-max-blue-select.webp';
+import iphone_max_gold from '../assets/reserve/iphone-13-pro-max-gold-select.webp';
+import iphone_max_graphite from '../assets/reserve/iphone-13-pro-max-graphite-select.webp';
+import iphone_max_silver from '../assets/reserve/iphone-13-pro-max-silver-select.webp';
+import iphone_red from '../assets/reserve/iphone-13-product-red-select-2021.webp';
+import iphone_max_starlight from '../assets/reserve/iphone-13-starlight-select-2021.webp';
+import iphone13_all_2 from '../assets/reserve/iPhone13全系列圖檔.webp';
 
 export interface carousellImgType {
   png: string;
@@ -25,30 +15,18 @@ export interface carousellImgType {
 }
 
 const carousellImg: string[] = [
-  iphone_blue_webp,
-  iphone_midnight_webp,
-  iphone_pink_webp,
-  iphone_red_webp,
-  iphone_max_blue_webp,
-  iphone_max_gold_webp,
-  iphone_max_graphite_webp,
-  iphone_max_silver_webp,
-  iphone_max_starlight_webp,
-  iphone13_all_2_webp,
+  iphone_blue,
+  iphone_midnight,
+  iphone_pink,
+  iphone_red,
+  iphone_max_blue,
+  iphone_max_gold,
+  iphone_max_graphite,
+  iphone_max_silver,
+  iphone_max_starlight,
+  iphone13_all_2,
 ];
 
-const carousellImgWebp: carousellImgType[] = [
-  { webp: iphone_blue_webp, png: iphone_blue },
-  { webp: iphone_midnight_webp, png: iphone_midnight },
-  { webp: iphone_pink_webp, png: iphone_pink },
-  { webp: iphone_red_webp, png: iphone_red },
-  { webp: iphone_max_blue_webp, png: iphone_max_blue },
-  { webp: iphone_max_gold_webp, png: iphone_max_gold },
-  { webp: iphone_max_graphite_webp, png: iphone_max_graphite },
-  { webp: iphone_max_silver_webp, png: iphone_max_silver },
-  { webp: iphone_max_starlight_webp, png: iphone_max_starlight },
-  { webp: iphone13_all_2_webp, png: iphone13_all_2 },
-];
 interface singleIphoneImgType {
   iphone: string[];
   img: string;
@@ -114,4 +92,4 @@ const singleIphoneImg: singleIphoneImgType[] = [
   },
 ];
 export default carousellImg;
-export { singleIphoneImg, carousellImgWebp };
+export { singleIphoneImg };

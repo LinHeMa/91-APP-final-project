@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import toDownImg from '../../assets/productImgs/toDownBigger.png';
+import toDownImg from '../../assets/productImgs/toDownBigger.webp';
 
 interface dataContentProp {
   dataContent: { title: string; content: { title: string }[] };

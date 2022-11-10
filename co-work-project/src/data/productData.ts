@@ -1,20 +1,20 @@
-import product1Img from '../assets/productImgs/product1.png';
-import product2Img from '../assets/productImgs/product2.png';
-import product3Img from '../assets/productImgs/product3.png';
-import product4Img from '../assets/productImgs/product4.png';
-import product5Img from '../assets/productImgs/product5.png';
-import product6Img from '../assets/productImgs/product6.png';
-import product1BigImg from '../assets/productImgs/product1Big.png';
-import product2BigImg from '../assets/productImgs/product2Big.png';
-import product3BigImg from '../assets/productImgs/product3Big.png';
-import product4BigImg from '../assets/productImgs/product4Big.png';
-import product5BigImg from '../assets/productImgs/product5Big.png';
+import product1Img from '../assets/productImgs/product1.webp';
+import product2Img from '../assets/productImgs/product2.webp';
+import product3Img from '../assets/productImgs/product3.webp';
+import product4Img from '../assets/productImgs/product4.webp';
+import product5Img from '../assets/productImgs/product5.webp';
+import product6Img from '../assets/productImgs/product6.webp';
+import product1BigImg from '../assets/productImgs/product1Big.webp';
+import product2BigImg from '../assets/productImgs/product2Big.webp';
+import product3BigImg from '../assets/productImgs/product3Big.webp';
+import product4BigImg from '../assets/productImgs/product4Big.webp';
+import product5BigImg from '../assets/productImgs/product5Big.webp';
 import video from '../assets/productImgs/video.mp4';
 import rowVideo from '../assets/productImgs/rowVideo.mp4';
-import sidebar1 from '../assets/productImgs/sidebar1.png';
-import sidebar2 from '../assets/productImgs/sidebar2.png';
-import sidebar3 from '../assets/productImgs/sidebar3.png';
-import sidebar4 from '../assets/productImgs/sidebar4.png';
+import sidebar1 from '../assets/productImgs/sidebar1.webp';
+import sidebar2 from '../assets/productImgs/sidebar2.webp';
+import sidebar3 from '../assets/productImgs/sidebar3.webp';
+import sidebar4 from '../assets/productImgs/sidebar4.webp';
 
 export const productData = [
   { title: '全站商品', content: [] },

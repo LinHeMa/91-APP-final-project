@@ -1,17 +1,16 @@
 import classNames from 'classnames';
-import _ from 'lodash';
 import { useOutletContext } from 'react-router-dom';
 import { singleIphoneImg } from '../data/carousellImg';
 import {
   chooseActionKind,
   ContextType,
 } from '../pages/reservation/ReservationIndex';
-import rightArrow from '../assets/reserve/rightArrowForSlider.png';
-import leftArrow from '../assets/reserve/leftArrowforSlider.png';
+import rightArrow from '../assets/reserve/rightArrowForSlider.webp';
+import leftArrow from '../assets/reserve/leftArrowforSlider.webp';
 import { useState } from 'react';
 
 const ProductSlider = () => {
-  const { state, dispatch, iphoneData } = useOutletContext<ContextType>();
+  const { state, dispatch } = useOutletContext<ContextType>();
   const [maxindex, setMaxindex] = useState(0);
   const clickLimit = (dataArray: any[]) => {
     const times = dataArray.length / 5;
@@ -23,7 +22,11 @@ const ProductSlider = () => {
   return (
     <div className="flex md:block  w-full md:w-[426px]  relative md:pb-[98px] md:mx-[20px] mb-4">
       <div className=" flex justify-center mx-auto w-full md:h-[426px] bg-[#f2f2f2]">
-        <img src={state.img || state.prevImg} alt="iphone" className=' max-w-[360px]'/>
+        <img
+          src={state.img || state.prevImg}
+          alt="iphone"
+          className=" max-w-[360px]"
+        />
       </div>
       <div
         className="cursor-pointer absolute bottom-[30px] -left-[30.57px]   hidden md:block"

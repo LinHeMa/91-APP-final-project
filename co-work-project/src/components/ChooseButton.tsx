@@ -1,7 +1,7 @@
-import rightArrow from '../assets/reserve/rightArrow.png';
-import leftArrow from '../assets/reserve/leftArrow.png';
-import rightImg from '../assets/productImgs/rightIcon.png';
-import leftImg from '../assets/productImgs/leftIcon.png';
+import rightArrow from '../assets/reserve/rightArrow.webp';
+import leftArrow from '../assets/reserve/leftArrow.webp';
+import rightImg from '../assets/productImgs/rightIcon.webp';
+import leftImg from '../assets/productImgs/leftIcon.webp';
 
 interface ChooseProps {
   direction: string;

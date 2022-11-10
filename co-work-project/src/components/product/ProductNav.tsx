@@ -1,6 +1,6 @@
 import classNames from 'classnames';
-import favImg from '../../assets/productImgs/favIcon.png';
-import shopcartImg from '../../assets/productImgs/shopcartIcon.png';
+import favImg from '../../assets/productImgs/favIcon.webp';
+import shopcartImg from '../../assets/productImgs/shopcartIcon.webp';
 import ProductCard from '../../components/product/ProductCard';
 
 interface ProductNavProps {

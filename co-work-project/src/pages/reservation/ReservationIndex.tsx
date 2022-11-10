@@ -3,7 +3,6 @@ import { Outlet } from 'react-router-dom';
 import { data as iphoneData } from '../../data/iphoneData';
 import ReserveFooter from '../../components/ReserveFooter';
 import ReserveHeader from '../../components/ReserveHeader';
-import iphone_blue from '../../assets/reserve/iphone-13-blue-select-2021.png';
 import _ from 'lodash';
 export enum chooseActionKind {
   CHANGE_MODEL = 'CHANGE_MODEL',
@@ -68,7 +67,6 @@ function reducer(state: stateType[], action: chooseAction) {
   switch (type) {
     case chooseActionKind.CHANGE_MODEL: {
       const colorArray = _.filter(iphoneData, (item) => item.model === payload);
-      console.log(colorArray, colorArray[0].variation[0].color);
       return {
         ...state,
         model: payload,

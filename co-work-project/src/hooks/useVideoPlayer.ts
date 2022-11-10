@@ -6,7 +6,6 @@ export default function useVideoPlayer(
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [isMuted, setIsMuted] = useState(false);
-  console.log(isPlaying,progress,isMuted)
   function togglePlay() {
     setIsPlaying(!isPlaying);
   }

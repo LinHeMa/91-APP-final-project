@@ -25,7 +25,6 @@ const ProductPicker = () => {
   const price = _.filter(iphoneData, (item) => {
     return item.model === state.model && item.memory === state.memory;
   })[0]?.price;
-  console.log(state);
   useEffect(() => {
     if (!price || price === 0) return;
     dispatch({ type: chooseActionKind.CHANGE_PRICE, payload: price });
@@ -99,7 +98,6 @@ const ProductPicker = () => {
                 'mr-[10px] mb-[10px]': true,
               })}
               onClick={() => {
-                console.log(state.model, memory, state.color, data, 'yes');
                 if (
                   !isMemoryAvailable(state.model, memory, state.color, data)
                 ) {
