@@ -38,7 +38,7 @@ const Product = () => {
         <div className="md:ml-[5%] md:mr-[5%]  md:mt-[72px] md:mb-[70px]">
           <ProductSlider />
         </div>
-        <div className=" md:mt-[87px] px-4 md:pr-0  md:pl-2">
+        <div className="pb-12 md:mt-[87px] px-4 md:pr-0 md:pb-0 md:pl-2">
           <ProductPicker />
         </div>
       </div>

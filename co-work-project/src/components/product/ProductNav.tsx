@@ -37,7 +37,7 @@ function ProductNav({
           <span className=" h-5 text-[#999999] text-[14px] mb-1 cursor-pointer hover:underline">
             {owner}
           </span>
-          <span className="text-[14px] mb-[36px] h-[42px] line-clamp-2 overflow-hidden cursor-pointer hover:text-[#ff655d]">
+          <span className="text-[14px] mb-[36px] h-[42px] line-clamp-2 overflow-hidden cursor-pointer hover:text-[#c89185]">
             {title}
           </span>
           <div className="flex justify-between items-end">

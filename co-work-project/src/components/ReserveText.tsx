@@ -1,8 +1,8 @@
 function ReserveText() {
   return (
     <div className="max-w-[1080px] mx-[10px] bg-white md:mx-auto  md:px-[20px]">
-      <div className=" h-[580px] mx-auto md:mx-unset w-full md:h-auto md:px-0 pt-[40px] md:py-[20px] max-w-[1080px] ">
-        <div className="h-[571px] md:h-auto pl-[18px] pr-[5px] w-full md:pl-0 mx-auto leading-4 md:leading-12">
+      <div className="  mx-auto md:mx-unset w-full md:h-auto md:px-0 pt-[40px] md:py-[20px] max-w-[1080px] ">
+        <div className=" md:h-auto pl-[18px] pr-[5px] pb-5 md:pb-0 w-full md:pl-0 mx-auto leading-4 md:leading-12">
           <span className="font-bold  text-[10px]  text-[#666666] md:text-[14px]">
             預約活動說明:
           </span>

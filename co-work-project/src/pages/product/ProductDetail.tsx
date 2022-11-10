@@ -11,6 +11,7 @@ import {
 import ProductNav from '../../components/product/ProductNav';
 import ProductLookbook from '../../components/product/ProductLookbook';
 import ReserveCarousell from '../../components/ReserveCarousell';
+import { Link } from 'react-router-dom';
 
 const ProductDetail = () => {
   return (
@@ -18,7 +19,7 @@ const ProductDetail = () => {
       <ProductHeader />
       <div className="max-w-[1180px] mx-auto">
         <div className="my-[14px]">
-          <span className="text-[14px] text-[#c89185]">
+          <span className="text-[14px] text-[#c89185] cursor-pointer">
             {'首頁 > 日本穿搭 > 穿搭介紹'}
           </span>
         </div>
