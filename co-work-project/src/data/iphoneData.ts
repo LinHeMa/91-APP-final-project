@@ -1,12 +1,12 @@
-import iphone_blue from '../assets/reserve/iphone-13-blue-select-2021.png';
-import iphone_midnight from '../assets/reserve/iphone-13-midnight-select-2021.png';
-import iphone_pink from '../assets/reserve/iphone-13-pink-select-2021.png';
-import iphone_red from '../assets/reserve/iphone-13-product-red-select-2021.png';
-import iphone_starlight from '../assets/reserve/iphone-13-starlight-select-2021.png';
-import iphone_max_blue from '../assets/reserve/iphone-13-pro-max-blue-select.png';
-import iphone_max_gold from '../assets/reserve/iphone-13-pro-max-gold-select.png';
-import iphone_max_graphite from '../assets/reserve/iphone-13-pro-max-graphite-select.png';
-import iphone_max_silver from '../assets/reserve/iphone-13-pro-max-silver-select.png';
+import iphone_blue from '../assets/reserve/iphone-13-blue-select-2021.webp';
+import iphone_midnight from '../assets/reserve/iphone-13-midnight-select-2021.webp';
+import iphone_pink from '../assets/reserve/iphone-13-pink-select-2021.webp';
+import iphone_red from '../assets/reserve/iphone-13-product-red-select-2021.webp';
+import iphone_starlight from '../assets/reserve/iphone-13-starlight-select-2021.webp';
+import iphone_max_blue from '../assets/reserve/iphone-13-pro-max-blue-select.webp';
+import iphone_max_gold from '../assets/reserve/iphone-13-pro-max-gold-select.webp';
+import iphone_max_graphite from '../assets/reserve/iphone-13-pro-max-graphite-select.webp';
+import iphone_max_silver from '../assets/reserve/iphone-13-pro-max-silver-select.webp';
 interface variation {
   color: string;
   colorName: string;

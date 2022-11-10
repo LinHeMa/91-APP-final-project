@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import CarousellDot from './CarousellDot';
 import ChooseButton from './ChooseButton';
 import Label from './Label';
@@ -26,7 +26,6 @@ interface touchEventTypes {
 
 const ReserveCarousell = ({
   photoArr,
-  photoArr2,
   leftPosition,
   rightPosition,
   currentPage,
@@ -58,13 +57,10 @@ const ReserveCarousell = ({
   const {
     isPlaying,
     progress,
-    isMuted,
     setProgress,
     togglePlay,
     handleOnTimeUpdate,
-    handleVideoProgress,
     setIsPlaying,
-    toggleMute,
   } = useVideoPlayer(videoElement);
   const nextPhoto = () => {
     if (photoIndex === photoCount(photoArr)) return setPhotoIndex(0);
@@ -123,8 +119,6 @@ const ReserveCarousell = ({
       setProgress(0);
     }
   }, [isPlaying]);
-
-  console.log(timerRef);
 
   return (
     <div

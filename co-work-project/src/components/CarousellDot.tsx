@@ -1,4 +1,3 @@
-import classNames from 'classnames';
 interface dotProps {
   isPlaying: boolean;
   clickFn: (index: number) => void;

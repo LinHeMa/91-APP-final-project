@@ -1,9 +1,9 @@
-import fansImg from '../../assets/productImgs/fansImg.png';
-import fbImg from '../../assets/productImgs/fbIcon.png';
-import igImg from '../../assets/productImgs/igIcon.png';
-import lineImg from '../../assets/productImgs/lineIcon.png';
-import googlePlayImg from '../../assets/productImgs/googleplayIcon.png';
-import appStoreImg from '../../assets/productImgs/appstoreIcon.png';
+import fansImg from '../../assets/productImgs/fansImg.webp';
+import fbImg from '../../assets/productImgs/fbIcon.webp';
+import igImg from '../../assets/productImgs/igIcon.webp';
+import lineImg from '../../assets/productImgs/lineIcon.webp';
+import googlePlayImg from '../../assets/productImgs/googleplayIcon.webp';
+import appStoreImg from '../../assets/productImgs/appstoreIcon.webp';
 import {
   footerContactData,
   footerShopInfoData,

@@ -1,13 +1,13 @@
 import _ from 'lodash';
 import { useEffect } from 'react';
 import { useNavigate, useOutletContext } from 'react-router-dom';
-import heartImg from '../../assets/reserve/img_heart.png';
+import heartImg from '../../assets/reserve/img_heart.webp';
 import ReserveText from '../../components/ReserveText';
 import { isFormDataCompelete, isProductDataCompelete } from '../../util/guard';
 import { ContextType } from './ReservationIndex';
 
 const SuccessPage = () => {
-  const { state, dispatch, iphoneData } = useOutletContext<ContextType>();
+  const { state, iphoneData } = useOutletContext<ContextType>();
   const price = _.filter(iphoneData, (item) => {
     return item.model === state.model && item.memory === state.memory;
   })[0].price;

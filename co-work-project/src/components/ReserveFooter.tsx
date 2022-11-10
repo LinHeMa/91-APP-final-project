@@ -12,16 +12,9 @@ const ReserveFooter = ({ state }: ReserveFooterProps) => {
   const pathName = useLocation();
   const { price } = state as unknown as stateType;
   const pathArray = _.split(pathName.pathname, '/');
-  const firstPathName = pathArray[1];
   const secondPathName = pathArray[2];
   const navigate = useNavigate();
   const { setTrue, setFalse, value: isOpen } = useBoolean(false);
-  console.log(
-    state,
-    !isUserValid(state) || !isProductValid(state),
-    !isUserValid(state),
-    !isProductValid(state)
-  );
   const handleClick = (path: string) => {
     switch (path) {
       case 'submitform': {

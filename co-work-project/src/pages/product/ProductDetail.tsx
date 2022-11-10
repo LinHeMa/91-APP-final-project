@@ -11,7 +11,6 @@ import {
 import ProductNav from '../../components/product/ProductNav';
 import ProductLookbook from '../../components/product/ProductLookbook';
 import ReserveCarousell from '../../components/ReserveCarousell';
-import { Link } from 'react-router-dom';
 
 const ProductDetail = () => {
   return (

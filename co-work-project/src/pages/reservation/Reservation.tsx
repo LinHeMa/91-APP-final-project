@@ -1,7 +1,7 @@
 import ReserveCarousell from '../../components/ReserveCarousell';
 import ReserveText from '../../components/ReserveText';
-import flowImg from '../../assets/reserve/flow.png';
-import carousellImg, { carousellImgWebp } from '../../data/carousellImg';
+import flowImg from '../../assets/reserve/flow.webp';
+import carousellImg from '../../data/carousellImg';
 import { useEffect } from 'react';
 
 const Reservation = () => {
@@ -29,7 +29,6 @@ const Reservation = () => {
         </div>
         <div className="mb-[36px] md:w-[544px] md:h-[544px]">
           <ReserveCarousell
-            photoArr2={carousellImgWebp}
             photoArr={carousellImg}
             leftPosition="-left-[359px]"
             rightPosition="left-[359px]"
