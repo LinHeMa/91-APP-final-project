@@ -114,7 +114,7 @@ const ReserveCarousell = ({
     setIsPlaying(false);
   }, [photoIndex]);
   useEffect(() => {
-    if (!isPlaying && progress === 100) {
+    if (!onPhoto && !isPlaying && progress === 100) {
       addTimer();
       setProgress(0);
     }
