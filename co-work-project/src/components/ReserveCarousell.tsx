@@ -94,12 +94,12 @@ const ReserveCarousell = ({
     }
     setPhotoIndex(index);
     setIsPlaying(false);
-    addTimer();
+    clearInterval(timerRef.current);
   };
   useEffect(() => {
-    //  TODO change trace to useref
-    //  TODO move istouching to onTouchend ()
-    if (!onPhoto) addTimer();
+    if (!onPhoto) {
+      addTimer();
+    }
     setTouchEvent({ trace: [] });
     return () => {
       clearInterval(timerRef.current);
