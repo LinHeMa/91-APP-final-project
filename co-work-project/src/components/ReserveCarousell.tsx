@@ -169,16 +169,6 @@ const ReserveCarousell = ({
             'bg-white': currentPage === 'product',
           })}
         />
-        <div
-          className={`
-            absolute w-full h-full top-0 left-0 z-10 ${
-              currentPage === 'reservation'
-                ? 'bg-[#fafafa]'
-                : currentPage === 'product'
-                ? 'bg-white'
-                : ''
-            } `}
-        />
         {photoArr.map((photo, index) => (
           <div
             key={_.toString(index)}
@@ -207,7 +197,7 @@ const ReserveCarousell = ({
                 src={photo}
                 alt="iphone照片"
                 draggable={false}
-                className={'w-full h-auto'}
+                className={'w-[100%] h-[100%]'}
               />
             )}
 
