@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import React from 'react';
 
 const ReserveHeader = React.memo(() => {
-  console.count('header');
   return (
     <div className="flex items-center md:pl-[10.7%] bg-[#FF5353] pl-[4%] h-[57px] md:h-[82px] ">
       <Link to="/">
