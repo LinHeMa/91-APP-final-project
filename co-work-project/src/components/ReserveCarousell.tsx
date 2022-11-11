@@ -169,6 +169,16 @@ const ReserveCarousell = ({
             'bg-white': currentPage === 'product',
           })}
         />
+        <div
+          className={`
+            absolute w-full h-full top-0 left-0 z-10 ${
+              currentPage === 'reservation'
+                ? 'bg-[#fafafa]'
+                : currentPage === 'product'
+                ? 'bg-white'
+                : ''
+            } `}
+        />
         {photoArr.map((photo, index) => (
           <div
             key={_.toString(index)}

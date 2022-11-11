@@ -7,7 +7,7 @@ import product6Img from '../assets/productImgs/product6.webp';
 import product1BigImg from '../assets/productImgs/product1Big.webp';
 import product2BigImg from '../assets/productImgs/product2Big.webp';
 import product3BigImg from '../assets/productImgs/product3Big.webp';
-import product4BigImg from '../assets/productImgs/product4Big.webp';
+import product4BigImg from '../assets/productImgs/product3Big.png';
 import product5BigImg from '../assets/productImgs/product5Big.webp';
 import video from '../assets/productImgs/video.mp4';
 import rowVideo from '../assets/productImgs/rowVideo.mp4';
