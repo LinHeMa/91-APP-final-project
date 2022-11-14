@@ -84,7 +84,7 @@ const ReserveCarousell = ({
         if (prev === photoCount(photoArr)) return 0;
         return prev + 1;
       });
-    }, 3000);
+    }, 2000);
   }, 500);
 
   const selectPhotoIndex = (index: number) => {
@@ -97,7 +97,7 @@ const ReserveCarousell = ({
     clearInterval(timerRef.current);
   };
   useEffect(() => {
-    if (!onPhoto) {
+    if (!onPhoto && !isPlaying) {
       addTimer();
     }
     setTouchEvent({ trace: [] });
@@ -114,7 +114,7 @@ const ReserveCarousell = ({
     setIsPlaying(false);
   }, [photoIndex]);
   useEffect(() => {
-    if (!isPlaying && progress === 100) {
+    if (!onPhoto && !isPlaying && progress === 100) {
       addTimer();
       setProgress(0);
     }
@@ -124,11 +124,11 @@ const ReserveCarousell = ({
     <div
       className="flex flex-col justify-center items-center"
       onMouseEnter={() => {
-        if (onMobile || isPlaying) return;
+        if (onMobile) return;
         setOnPhoto(true);
       }}
       onMouseLeave={() => {
-        if (onMobile || isPlaying) return;
+        if (onMobile) return;
         setOnPhoto(false);
       }}
       onMouseDown={(e) => {
@@ -172,7 +172,6 @@ const ReserveCarousell = ({
         {photoArr.map((photo, index) => (
           <div
             key={_.toString(index)}
-            // style={{ transition: 'opacity 0.25s ease, position 0.7s linear' }}
             className={classNames({
               'absolute z-0 min-w-full transition-all': true,
               [`${leftPosition} duration-700 ease-in-out`]:

@@ -87,7 +87,7 @@ const ReserveFooter = ({ state }: ReserveFooterProps) => {
       >
         {footerText(secondPathName)}
         <span className={classNames({ hidden: secondPathName !== 'product' })}>
-          ${price}
+          {price > 0 ? 'NT$' + price : '請選擇容量'}
         </span>
       </p>
       <button

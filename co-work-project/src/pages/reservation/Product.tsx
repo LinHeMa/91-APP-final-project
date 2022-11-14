@@ -5,7 +5,7 @@ import ProductPicker from '../../components/ProductPicker';
 import ProductSlider from '../../components/ProductSlider';
 import { singleIphoneImg } from '../../data/carousellImg';
 import { isFormDataCompelete } from '../../util/guard';
-import { chooseActionKind, ContextType } from './ReservationIndex';
+import { reducerActionKinds, ContextType } from './ReservationIndex';
 
 const Product = () => {
   const { state, dispatch } = useOutletContext<ContextType>();
@@ -20,7 +20,7 @@ const Product = () => {
   useEffect(() => {
     if (chooseImg)
       dispatch({
-        type: chooseActionKind.CHANGE_IMG,
+        type: reducerActionKinds.CHANGE_IMG,
         payload: chooseImg,
       });
   }, [state.color]);

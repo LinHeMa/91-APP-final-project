@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { useForm } from 'react-hook-form';
 import { useNavigate, useOutletContext } from 'react-router-dom';
 import {
-  chooseActionKind,
+  reducerActionKinds,
   ContextType,
 } from '../pages/reservation/ReservationIndex';
 
@@ -13,19 +13,18 @@ const Form = () => {
     getValues,
     formState: { errors },
   } = useForm();
-  const { state, dispatch, iphoneData } = useOutletContext<ContextType>();
+  const { state, dispatch } = useOutletContext<ContextType>();
   const navigate = useNavigate();
   const onSubmit = () => {
-    // TODO guard clause
     const {
       請輸入姓名: name,
       手機號碼: phoneNum,
       輸入Email: email,
     } = getValues();
-    dispatch({ type: chooseActionKind.CHANGE_USER_NAME, payload: name });
-    dispatch({ type: chooseActionKind.CHANGE_USER_EMAIL, payload: email });
+    dispatch({ type: reducerActionKinds.CHANGE_USER_NAME, payload: name });
+    dispatch({ type: reducerActionKinds.CHANGE_USER_EMAIL, payload: email });
     dispatch({
-      type: chooseActionKind.CHANGE_USER_PHONE_NUM,
+      type: reducerActionKinds.CHANGE_USER_PHONE_NUM,
       payload: phoneNum,
     });
     navigate('/reservation/product', { state: { ...state } });
@@ -70,7 +69,7 @@ const Form = () => {
           <select className="w-[116px] h-[40px] text-[#999999] border mr-[5px] bg-[#F4F4F4] border-solid border-[#DDDDDD] rounded-[5px] py-[7px] px-[11px] text-[14px] mt-[10px]">
             <option>+886</option>
           </select>
-          <div className='flex grow flex-col'>
+          <div className="flex grow flex-col">
             <input
               className={classNames({
                 'grow border h-[40px] border-solid  border-[#DDDDDD] rounded-[5px] py-[9.5px] px-[10px] text-[14px] mt-[10px]':

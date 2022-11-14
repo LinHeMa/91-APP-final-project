@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { useOutletContext } from 'react-router-dom';
 import { singleIphoneImg } from '../data/carousellImg';
 import {
-  chooseActionKind,
+  reducerActionKinds,
   ContextType,
 } from '../pages/reservation/ReservationIndex';
 import rightArrow from '../assets/reserve/rightArrowForSlider.webp';
@@ -50,15 +50,15 @@ const ProductSlider = () => {
             })}
             onClick={() => {
               dispatch({
-                type: chooseActionKind.CHANGE_MODEL,
+                type: reducerActionKinds.CHANGE_MODEL,
                 payload: photo.iphone[0],
               });
               dispatch({
-                type: chooseActionKind.CHANGE_COLOR,
+                type: reducerActionKinds.CHANGE_COLOR,
                 payload: photo.color,
               });
               dispatch({
-                type: chooseActionKind.CHANGE_COLORNAME,
+                type: reducerActionKinds.CHANGE_COLORNAME,
                 payload: photo.colorName,
               });
             }}

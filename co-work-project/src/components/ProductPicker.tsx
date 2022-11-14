@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useOutletContext } from 'react-router-dom';
 import { data } from '../data/iphoneData';
 import {
-  chooseActionKind,
+  reducerActionKinds,
   ContextType,
   stateType,
 } from '../pages/reservation/ReservationIndex';
@@ -26,8 +26,7 @@ const ProductPicker = () => {
     return item.model === state.model && item.memory === state.memory;
   })[0]?.price;
   useEffect(() => {
-    if (!price || price === 0) return;
-    dispatch({ type: chooseActionKind.CHANGE_PRICE, payload: price });
+    dispatch({ type: reducerActionKinds.CHANGE_PRICE, payload: price });
   }, [state.model, state.memory]);
   return (
     <div className="w-full md:max-w-[376px]  md:pr-2">
@@ -49,7 +48,7 @@ const ProductPicker = () => {
               key={index}
               onClick={() => {
                 dispatch({
-                  type: chooseActionKind.CHANGE_MODEL,
+                  type: reducerActionKinds.CHANGE_MODEL,
                   payload: name,
                 });
               }}
@@ -74,11 +73,11 @@ const ProductPicker = () => {
                 )
                   return;
                 dispatch({
-                  type: chooseActionKind.CHANGE_COLORNAME,
+                  type: reducerActionKinds.CHANGE_COLORNAME,
                   payload: colorName,
                 });
                 dispatch({
-                  type: chooseActionKind.CHANGE_COLOR,
+                  type: reducerActionKinds.CHANGE_COLOR,
                   payload: color,
                 });
               }}
@@ -104,7 +103,7 @@ const ProductPicker = () => {
                   return;
                 }
                 dispatch({
-                  type: chooseActionKind.CHANGE_MEMORY,
+                  type: reducerActionKinds.CHANGE_MEMORY,
                   payload: memory,
                 });
               }}

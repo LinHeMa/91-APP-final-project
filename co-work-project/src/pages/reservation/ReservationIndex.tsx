@@ -4,7 +4,7 @@ import { data as iphoneData } from '../../data/iphoneData';
 import ReserveFooter from '../../components/ReserveFooter';
 import ReserveHeader from '../../components/ReserveHeader';
 import _ from 'lodash';
-export enum chooseActionKind {
+export enum reducerActionKinds {
   CHANGE_MODEL = 'CHANGE_MODEL',
   CHANGE_MEMORY = 'CHANGE_MEMORY',
   CHANGE_PRICE = 'CHANGE_PRICE',
@@ -17,7 +17,7 @@ export enum chooseActionKind {
   CHANGE_USER_EMAIL = 'CHANGE_USER_EMAIL',
 }
 interface chooseAction {
-  type: chooseActionKind;
+  type: reducerActionKinds;
   payload: number | string;
 }
 
@@ -65,7 +65,7 @@ export interface ContextType {
 function reducer(state: stateType[], action: chooseAction) {
   const { type, payload } = action;
   switch (type) {
-    case chooseActionKind.CHANGE_MODEL: {
+    case reducerActionKinds.CHANGE_MODEL: {
       const colorArray = _.filter(iphoneData, (item) => item.model === payload);
       return {
         ...state,
@@ -77,44 +77,44 @@ function reducer(state: stateType[], action: chooseAction) {
         qty: 0,
       };
     }
-    case chooseActionKind.CHANGE_COLOR:
+    case reducerActionKinds.CHANGE_COLOR:
       return {
         ...state,
         memory: 0,
         color: payload,
       };
-    case chooseActionKind.CHANGE_COLORNAME:
+    case reducerActionKinds.CHANGE_COLORNAME:
       return {
         ...state,
         colorName: payload,
       };
-    case chooseActionKind.CHANGE_MEMORY:
+    case reducerActionKinds.CHANGE_MEMORY:
       return {
         ...state,
         memory: payload,
       };
-    case chooseActionKind.CHANGE_IMG:
+    case reducerActionKinds.CHANGE_IMG:
       return {
         ...state,
         img: payload,
         prevImg: payload,
       };
-    case chooseActionKind.CHANGE_PRICE:
+    case reducerActionKinds.CHANGE_PRICE:
       return {
         ...state,
         price: payload,
       };
-    case chooseActionKind.CHANGE_USER_NAME:
+    case reducerActionKinds.CHANGE_USER_NAME:
       return {
         ...state,
         userName: payload,
       };
-    case chooseActionKind.CHANGE_USER_EMAIL:
+    case reducerActionKinds.CHANGE_USER_EMAIL:
       return {
         ...state,
         userEmail: payload,
       };
-    case chooseActionKind.CHANGE_USER_PHONE_NUM:
+    case reducerActionKinds.CHANGE_USER_PHONE_NUM:
       return {
         ...state,
         userPhoneNum: payload,
