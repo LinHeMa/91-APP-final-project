@@ -38,7 +38,7 @@ const Form = () => {
         id="form"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <div>
+        <div className="text-[14px]">
           <span className="text-red-500">*</span>姓名
         </div>
         <input
@@ -63,14 +63,14 @@ const Form = () => {
         >
           請輸入中文姓名，限制2~7個字
         </p>
-        <div className="mt-[15px]">
-          <span className="text-red-500">*</span>手機號碼（須通過簡訊驗證）
+        <div className="mt-[15px] text-[14px]">
+          <span className="text-red-500 ">*</span>手機號碼（須通過簡訊驗證）
         </div>
         <div className="flex  justify-between">
           <select className="w-[116px] h-[40px] text-[#999999] border mr-[5px] bg-[#F4F4F4] border-solid border-[#DDDDDD] rounded-[5px] py-[7px] px-[11px] text-[14px] mt-[10px]">
             <option>+886</option>
           </select>
-          <div className='flex grow flex-col'>
+          <div className="flex grow flex-col">
             <input
               className={classNames({
                 'grow border h-[40px] border-solid  border-[#DDDDDD] rounded-[5px] py-[9.5px] px-[10px] text-[14px] mt-[10px]':
@@ -96,7 +96,7 @@ const Form = () => {
             </p>
           </div>
         </div>
-        <div className="mt-[15px]">
+        <div className="mt-[15px] text-[14px]">
           <span className=" text-red-500">*</span>
           Email信箱（開賣時用此email通知）
         </div>
@@ -126,7 +126,7 @@ const Form = () => {
               'border-[#ff5353]': errors.同意 !== undefined,
             })}
           />
-          <p>
+          <p className="text-[14px]">
             我已閱讀並同意
             <a className="text-[#428BCA] cursor-pointer">
               隱私權及網站使用條款

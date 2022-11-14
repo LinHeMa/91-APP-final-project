@@ -32,7 +32,6 @@ export const productData = [
   {
     title: '本月主題推薦',
     content: [
-      { title: 'NO.1冠軍小白鞋家族' },
       { title: 'Kitty獨家聯名款' },
       { title: '美樂蒂獨家聯名鞋款' },
       { title: '美腿製造機涼鞋' },
@@ -40,47 +39,30 @@ export const productData = [
   },
   {
     title: '流行女鞋',
-    content: [
-      { title: 'NO.1冠軍小白鞋家族' },
-      { title: 'Kitty獨家聯名款' },
-      { title: '美樂蒂獨家聯名鞋款' },
-      { title: '美腿製造機涼鞋' },
-    ],
+    content: [{ title: 'NO.1冠軍小白鞋家族' }, { title: '美腿製造機涼鞋' }],
   },
   {
     title: '手工婚鞋',
-    content: [
-      { title: 'NO.1冠軍小白鞋家族' },
-      { title: 'Kitty獨家聯名款' },
-      { title: '美樂蒂獨家聯名鞋款' },
-      { title: '美腿製造機涼鞋' },
-    ],
+    content: [{ title: '純白婚鞋' }, { title: '訂做專區' }],
   },
   {
     title: '包包系列',
     content: [
-      { title: 'NO.1冠軍小白鞋家族' },
-      { title: 'Kitty獨家聯名款' },
-      { title: '美樂蒂獨家聯名鞋款' },
-      { title: '美腿製造機涼鞋' },
+      { title: '托特包' },
+      { title: '防水後背包' },
+      { title: '單手包' },
     ],
   },
   {
     title: '獨家聯名',
-    content: [
-      { title: 'NO.1冠軍小白鞋家族' },
-      { title: 'Kitty獨家聯名款' },
-      { title: '美樂蒂獨家聯名鞋款' },
-      { title: '美腿製造機涼鞋' },
-    ],
+    content: [{ title: 'Kitty獨家聯名款' }, { title: '美樂蒂獨家聯名鞋款' }],
   },
   {
     title: '貼心鞋材',
     content: [
-      { title: 'NO.1冠軍小白鞋家族' },
-      { title: 'Kitty獨家聯名款' },
-      { title: '美樂蒂獨家聯名鞋款' },
-      { title: '美腿製造機涼鞋' },
+      { title: '小牛皮真皮' },
+      { title: '防水透氣' },
+      { title: '心機增高' },
     ],
   },
   {
@@ -89,7 +71,6 @@ export const productData = [
       { title: 'NO.1冠軍小白鞋家族' },
       { title: 'Kitty獨家聯名款' },
       { title: '美樂蒂獨家聯名鞋款' },
-      { title: '美腿製造機涼鞋' },
     ],
   },
 ];
@@ -102,6 +83,8 @@ export const titleData = [
     content: [],
   },
   { title: 'Best Sellers', content: [] },
+  { title: '獨家聯名專區', content: [] },
+  { title: '預購專區', content: [] },
 ];
 
 export const productLookBook = {
@@ -148,7 +131,7 @@ export const sidebarData = [
   },
   {
     owner: 'niko and ...',
-    title: 'LOWRYS FARM素色飄逸垂墜感修身百褶長裙-三色三色三色三色',
+    title: 'LOWRYS FARM防水多功能後背包-此商品為預購商品，請先至預購專區登記',
     prevPrice: 30,
     currentPrice: 400,
     photo: sidebar2,
@@ -156,7 +139,7 @@ export const sidebarData = [
   },
   {
     owner: 'niko and ...',
-    title: 'LOWRYS FARM素色飄逸垂墜感修身百褶長裙-三色',
+    title: 'LOWRYS FARM碎花長裙',
     prevPrice: 10,
     currentPrice: 700,
     photo: sidebar3,
@@ -164,7 +147,7 @@ export const sidebarData = [
   },
   {
     owner: 'niko and ...',
-    title: 'LOWRYS FARM素色飄逸垂墜感修身百褶長裙-三色',
+    title: 'LOWRYS FARM垂墜百褶雙層長裙',
     prevPrice: 50,
     currentPrice: 300,
     photo: sidebar4,

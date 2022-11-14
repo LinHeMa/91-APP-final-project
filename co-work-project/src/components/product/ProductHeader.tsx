@@ -64,7 +64,7 @@ function ProductHeader() {
             </div>
           </div>
           <div className="flex justify-between  ">
-            <div className="flex flex-wrap max-w-[685px] pt-[15px]">
+            <div className="flex flex-wrap max-w-[685px] pt-[16px]">
               {titleData.map((data, index) => (
                 <div
                   key={index}

@@ -197,7 +197,7 @@ const ReserveCarousell = ({
                 src={photo}
                 alt="iphone照片"
                 draggable={false}
-                className={'w-full h-auto'}
+                className={'w-[100%] h-[100%]'}
               />
             )}
 
