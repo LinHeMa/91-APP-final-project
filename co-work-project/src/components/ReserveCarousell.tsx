@@ -172,7 +172,6 @@ const ReserveCarousell = ({
         {photoArr.map((photo, index) => (
           <div
             key={_.toString(index)}
-            // style={{ transition: 'opacity 0.25s ease, position 0.7s linear' }}
             className={classNames({
               'absolute z-0 min-w-full transition-all': true,
               [`${leftPosition} duration-700 ease-in-out`]:
